@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Difira Studio — software yang bikin pekerjaan terasa lebih ringan." />
+  <title>Difira Studio — Software, made human.</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+  <style>.flee{transition:transform .48s cubic-bezier(.16,1,.3,1)!important}.float-art,.hero-illustration,.sticker{transition:transform .62s cubic-bezier(.16,1,.3,1)}.marquee div{animation-duration:16s!important}.nav-links a,.text-link,.product-card a{position:relative;z-index:0;padding:4px 7px;margin:-4px -7px;border:0}.nav-links a:before,.text-link:before,.product-card a:before{content:"";position:absolute;z-index:-1;left:0;right:0;bottom:0;height:0;background:var(--yellow);transition:height .25s cubic-bezier(.2,.8,.2,1);border-radius:4px}.nav-links a:hover:before,.text-link:hover:before,.product-card a:hover:before{height:100%}.nav-links a:hover,.text-link:hover,.product-card a:hover{transform:translateY(-2px)}.nav-links a,.text-link,.product-card a{transition:transform .25s ease}.nav-cta,.button{transition:transform .25s ease,box-shadow .25s ease,background .25s ease}.nav-cta:hover,.button:hover{transform:translateY(-4px);box-shadow:5px 5px 0 var(--ink)}.nav-cta:hover{background:var(--yellow)}.button-dark:hover{background:var(--coral)}.button-light:hover{background:var(--yellow)}.nav-cta:hover span,.button:hover span,.product-card a:hover span,.text-link:hover span{display:inline-block;transform:translate(3px,-2px);transition:transform .25s ease}@media(max-width:760px){.wide-idea-inner,.game-card{grid-template-columns:1fr}.wide-idea{padding:82px 0}.idea-copy{font-size:17px}.game-card{padding:34px 24px}.game-board{height:210px;margin-top:12px}}</style>
+  <style>.product-grid{display:flex;overflow-x:auto;grid-template-columns:none;gap:18px;padding:4px 4px 18px;scroll-snap-type:x mandatory;scrollbar-width:thin;scrollbar-color:var(--coral) transparent}.product-grid .product-card{flex:0 0 calc((100% - 36px)/3);scroll-snap-align:start}@media(max-width:900px){.product-grid .product-card{flex-basis:calc((100% - 18px)/2)}}@media(max-width:760px){.product-grid .product-card{flex-basis:88%}}</style>
+  <style>.product-card a{position:absolute!important;left:25px;bottom:28px;margin:0;display:inline-block;max-width:calc(100% - 50px)}.product-card p{padding-bottom:28px}.footer{align-items:flex-start;gap:55px}.footer-brand,.footer-company,.footer-contact{display:flex;flex-direction:column;gap:8px}.footer-brand{margin-right:auto}.footer-brand p,.footer-brand small{margin:3px 0 0;font:11px var(--mono)}.footer-brand small{opacity:.6}.footer-company strong,.footer-contact strong{font:11px var(--mono);text-transform:uppercase;letter-spacing:1px;margin-bottom:8px}.footer-company span,.footer-contact a{font:12px var(--mono);color:var(--ink);text-decoration:none}.footer-contact a:hover{color:var(--coral)}.socials{display:flex;gap:9px;margin-top:12px}.socials a{display:grid;place-items:center;border:1px solid var(--ink);width:29px;height:29px;border-radius:50%;font:12px var(--mono);transition:background .2s,transform .2s}.socials a:hover{background:var(--yellow);transform:translateY(-3px)}@media(max-width:760px){.footer{display:grid;grid-template-columns:1fr 1fr;gap:38px 20px}.footer-brand{grid-column:1/-1}.footer-contact{grid-column:2}.footer-company{grid-column:1}}</style>
+  <style>.bot-launcher[hidden],.floating-chat[hidden]{display:none!important}.chat-form input{min-width:0}.floating-chat{max-height:calc(100dvh - 40px);overflow:auto}</style>
+</head>
+<body>
+  <div class="grain"></div>
+  <nav class="nav container">
+    <a class="brand" href="#top"><span class="brand-mark">✳</span> difira<span class="brand-dot">.</span></a>
+    <div class="nav-links"><a href="#products">Produk</a><a href="#about">Tentang kami</a><a href="#contact">Kontak</a></div>
+    <a class="nav-cta" href="#contact">Ngobrol yuk <span>↗</span></a>
+  </nav>
+
+  <main id="top">
+    <section class="hero container">
+      <div class="hero-copy">
+        <p class="eyebrow"><span class="pulse"></span> software house dari Indonesia</p>
+        <h1>Bikin kerja jadi<br><em>lebih ringan.</em></h1>
+        <p class="hero-sub">Kami menciptakan software untuk masalah klasik sehari-hari—dari mengelola bisnis sampai menjalani fase hidup yang paling penting.</p>
+        <div class="hero-actions"><a class="button button-dark" href="#products">Lihat produk <span>↓</span></a><a class="text-link" href="#about">Kenalan dengan Difira <span>↗</span></a></div>
+      </div>
+      <div class="hero-art" aria-label="Ilustrasi abstrak Difira Studio">
+        <div class="orb orb-one"></div><div class="orb orb-two"></div><div class="sun">✳</div>
+        <div class="sticker sticker-top">build useful<br>things <span>♡</span></div>
+        <div class="sticker sticker-bottom">made with<br>curiosity <span>✦</span></div>
+        <div class="orbit-line"></div><img class="hero-illustration" src="difira-illustration.svg" alt="Ilustrasi orang-orang terhubung melalui teknologi" /><img class="float-art art-laundry" src="art-laundry.svg" alt="Ilustrasi laundry" /><img class="float-art art-calendar" src="art-calendar.svg" alt="Ilustrasi kalender" />
+      </div>
+    </section>
+
+    <section class="marquee"><div>SOFTWARE YANG BERGUNA <span>✳</span> UNTUK HARI-HARI YANG LEBIH LANCAR <span>✳</span> DARI BISNIS KECIL, KELUARGA, SAMPAI RUTINITAS SEHARI-HARI <span>✳</span> IDE KECIL, DAMPAK BESAR <span>✳</span> SOFTWARE YANG BERGUNA <span>✳</span> UNTUK HARI-HARI YANG LEBIH LANCAR <span>✳</span> DARI BISNIS KECIL, KELUARGA, SAMPAI RUTINITAS SEHARI-HARI <span>✳</span></div></section>
+
+    <section class="problem-strip container"><div class="problem-heading"><p class="eyebrow">kami suka masalah yang nyata</p><h2>Hal-hal kecil<br>yang bikin <em>pusing.</em></h2></div><div class="problem-list"><div class="problem-item"><span>01</span><p>“Orderan numpuk, catatan berantakan.”</p><b>→ TehPOS</b></div><div class="problem-item"><span>02</span><p>“Lupa jadwal, lupa follow-up, lupa lagi.”</p><b>→ Jadwalkan</b></div><div class="problem-item"><span>03</span><p>“Pengen lebih siap jadi orang tua.”</p><b>→ sedang kami pikirkan</b></div></div></section>
+
+    <section class="products container" id="products">
+      <div class="section-intro"><p class="eyebrow">produk yang sedang kami bangun</p><h2>Tools kecil,<br><em>impact besar.</em></h2><p class="intro-copy">Dibuat untuk menghilangkan pekerjaan repetitif, merapikan operasional, dan memberi ruang untuk hal yang lebih penting.</p></div>
+      <div class="product-grid">
+        <article class="product-card teal"><div class="card-meta"><span class="number">01</span><span class="status">available now</span></div><div class="product-icon">☷</div><h3>TehPOS</h3><p>POS sederhana untuk bisnis F&B yang ingin melayani lebih cepat dan mencatat lebih rapi.</p><a href="https://tehpos.vercel.app" target="_blank" rel="noreferrer">Buka TehPOS <span>↗</span></a><div class="card-shape"></div></article>
+        <article class="product-card yellow"><div class="card-meta"><span class="number">02</span><span class="status">in the works</span></div><div class="product-icon">◌</div><h3>Laundry POS</h3><p>Semua order, status cucian, dan laporan laundry dalam satu tempat yang mudah dipahami.</p><a href="#contact">Dapatkan kabar <span>↗</span></a><div class="card-shape"></div></article>
+        <article class="product-card coral"><div class="card-meta"><span class="number">03</span><span class="status">in the works</span></div><div class="product-icon">◷</div><h3>Jadwalkan</h3><p>Atur jadwal, booking, dan waktu dengan cara yang tidak bikin kepala ikut penuh.</p><a href="#contact">Dapatkan kabar <span>↗</span></a><div class="card-shape"></div></article>
+        <article class="product-card lavender"><div class="card-meta"><span class="number">04</span><span class="status">coming soon</span></div><div class="product-icon">♡</div><h3>Buah Hatiku</h3><p>Kalkulator sederhana untuk membantu orang tua memahami tumbuh kembang anak dari waktu ke waktu.</p><a href="#contact">Dapatkan kabar <span>↗</span></a><div class="card-shape"></div></article>
+      </div>
+    </section>
+
+    <section class="wide-idea"><div class="container wide-idea-inner"><div><p class="eyebrow">dan masih banyak lagi</p><h2>Dari kasir sampai<br><em>keseharian.</em></h2><div class="illustration-cloud"><img src="art-family.svg" alt="Ilustrasi keluarga" /><img src="art-baby.svg" alt="Ilustrasi ibu dan bayi" /><span>✦</span></div></div><div class="idea-copy"><img class="idea-illustration" src="difira-illustration.svg" alt="Ilustrasi kolaborasi dan koneksi" /><p>Difira dibangun untuk siapa saja yang ingin hidupnya sedikit lebih mudah. Kami sedang mengeksplorasi software untuk keluarga, ibu hamil & menyusui, pekerja, komunitas, dan masalah-masalah kecil yang sering dianggap sepele.</p><div class="idea-tags"><span>keluarga</span><span>wellbeing</span><span>produktivitas</span><span>komunitas</span></div></div></div></section>
+
+    <section class="ai-section"><div class="container ai-inner"><div class="ai-copy"><p class="eyebrow">our unfair advantage</p><h2>AI yang canggih.<br><em>Rasa yang manusiawi.</em></h2><p>Kami memanfaatkan AI sepenuhnya untuk menemukan pola, mempercepat pekerjaan, dan menciptakan solusi yang sebelumnya tidak terpikirkan.</p><p>Tapi setiap keputusan tetap dimulai dari manusia: mendengar, memahami konteks, dan memastikan teknologi benar-benar membantu kehidupan nyata.</p><a class="text-link" href="#contact">Bicarakan ide AI <span>↗</span></a></div><div class="ai-visual"><span class="ai-orbit orbit-a"></span><span class="ai-orbit orbit-b"></span><div class="ai-core">AI<span>✳</span></div><div class="ai-chip chip-one">listen</div><div class="ai-chip chip-two">learn</div><div class="ai-chip chip-three">care</div><div class="ai-chip chip-four">create</div></div></div></section>
+
+    <button type="button" class="bot-launcher" id="botLauncher" aria-label="Buka Difira Brainstorm" aria-expanded="false" aria-controls="chatWindow" title="Punya ide? Yuk, diskusi!"><span class="bot-face">◕‿◕</span><span class="bot-spark">✦</span></button><div class="chat-window floating-chat" id="chatWindow" role="dialog" aria-label="Difira Brainstorm" hidden><div class="chat-top"><span class="chat-dot"></span><strong>Difira Brainstorm</strong><button class="chat-close" id="chatClose" aria-label="Tutup chatbot">×</button></div><div class="chat-messages" id="chatMessages"><div class="bubble bot">Halo! 👋<br>Ada masalah atau ide yang mau kita obrolin?</div><div class="suggestions"><button data-msg="Bisnis saya sulit mengatur stok">stok bisnis</button><button data-msg="Saya sering lupa jadwal">jadwal harian</button><button data-msg="Saya ingin membantu ibu dan anak">keluarga</button></div></div><form class="chat-form" id="chatForm"><input id="chatInput" aria-label="Pesan untuk Difira Brainstorm" placeholder="Ceritakan masalahmu..." autocomplete="off" /><button aria-label="Kirim">↗</button></form></div>
+
+    <section class="manifesto" id="about"><div class="container manifesto-inner"><div><p class="eyebrow">cara kami berpikir</p><h2>Teknologi itu<br><em>seharusnya terasa</em><br>manusiawi.</h2></div><div class="manifesto-note"><span class="big-quote">“</span><p id="quoteText">Kami percaya software terbaik bukan yang paling rumit. Tapi yang paling mengerti cara orang bekerja.</p><div class="quote-controls"><button id="prevQuote" aria-label="Quote sebelumnya">←</button><span id="quoteCount">01 / 06</span><button id="nextQuote" aria-label="Quote berikutnya">→</button></div><div class="signature">— tim Difira <span>✳</span></div></div></div></section>
+
+    <section class="contact container" id="contact"><div class="contact-box"><p class="eyebrow">punya ide atau butuh bantuan?</p><h2>Yuk, bikin sesuatu<br><em>yang berguna.</em></h2><a class="button button-light" href="mailto:hello@difira.studio">hello@difira.studio <span>↗</span></a><div class="contact-doodle">✦</div></div></section>
+    <section class="mini-game container"><div class="game-card"><div><p class="eyebrow">istirahat 30 detik</p><h2>Catch the <em>good idea.</em></h2><p>Klik bintang yang muncul. Siapa tahu dapat ide software berikutnya.</p></div><div class="game-board" id="gameBoard"><button id="star" aria-label="Tangkap bintang">✦</button><span class="score">score <b id="score">0</b></span></div></div></section>
+  </main>
+  <footer class="footer container"><div class="footer-brand"><a class="brand" href="#top"><span class="brand-mark">✳</span> difira<span class="brand-dot">.</span></a><p>software, made human.</p><small>© 2026 Difira Studio</small></div><div class="footer-company"><strong>Difira Studio</strong><span>PT Difira Berkah Bersama</span><span>Kecamatan Genuk, Kota Semarang</span></div><div class="footer-contact"><strong>Contact</strong><a href="mailto:support@difirastudio.com">support@difirastudio.com</a><a href="https://wa.me/6287761021129" target="_blank" rel="noreferrer">WA +6287761021129</a><div class="socials"><a href="#" aria-label="Instagram">◎</a><a href="#" aria-label="X">𝕏</a><a href="#" aria-label="LinkedIn">in</a><a href="#" aria-label="YouTube">▶</a></div></div></footer>
+<script src="app.js"></script>
+</body>
+</html>
+
