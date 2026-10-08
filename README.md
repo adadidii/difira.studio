@@ -8,11 +8,12 @@ Buka `index.html` di browser. Project menggunakan HTML, CSS, dan JavaScript tanp
 
 ## Isi project
 
-- `index.html`: halaman utama — layanan, portofolio produk, model bisnis, proses, tentang, dan kontak.
+- `index.html`: halaman utama — layanan, portofolio produk, proses, tentang, dan kontak.
 - `karir.html`: halaman lowongan kerja.
 - `styles.css`: design system dan layout bersama untuk kedua halaman.
 - `app.js`: menu mobile, header saat scroll, dan animasi reveal.
-- `*.svg`: ilustrasi lokal.
+- `art-*.svg`, `difira-illustration.svg`: ilustrasi lokal.
+- `favicon.svg`, `favicon-32.png`, `apple-touch-icon.png`, `icons/`, `site.webmanifest`: ikon browser, iPhone (Add to Home Screen), dan Android. Sumber ikon ada di `icons/icon.svg`.
 
 ## Sebelum publikasi
 

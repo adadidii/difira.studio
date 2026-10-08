@@ -9,7 +9,11 @@
   <meta property="og:description" content="Kami membangun produk digital sendiri dan software untuk bisnis. Software, made human." />
   <meta property="og:type" content="website" />
   <meta name="theme-color" content="#172522" />
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%23172522'/%3E%3Ctext x='32' y='45' font-size='38' text-anchor='middle' fill='%23f6c85f'%3E%E2%9C%B3%3C/text%3E%3C/svg%3E" />
+  <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+  <link rel="icon" href="favicon-32.png" type="image/png" sizes="32x32" />
+  <link rel="apple-touch-icon" href="apple-touch-icon.png" />
+  <link rel="manifest" href="site.webmanifest" />
+  <meta name="apple-mobile-web-app-title" content="Difira" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
@@ -20,7 +24,7 @@
   <a class="skip-link" href="#main">Lewati ke konten</a>
   <header class="site-header">
     <nav class="nav container" aria-label="Navigasi utama">
-      <a class="brand" href="#top"><span class="brand-mark">✳</span> difira<span class="brand-dot">.</span></a>
+      <a class="brand" href="#top"><svg class="brand-mark" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v18M3 12h18M5.6 5.6l12.8 12.8M18.4 5.6L5.6 18.4"/></svg> difira<span class="brand-dot">.</span></a>
       <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="navLinks" aria-label="Buka menu"><span></span><span></span></button>
       <div class="nav-links" id="navLinks">
         <a href="#services">Layanan</a>
@@ -28,7 +32,7 @@
         <a href="#process">Proses</a>
         <a href="#about">Tentang</a>
         <a href="karir.html">Karir</a>
-        <a class="nav-cta" href="#contact">Diskusikan proyek <span>↗</span></a>
+        <a class="nav-cta" href="#contact">Diskusikan proyek <span>↗︎</span></a>
       </div>
     </nav>
   </header>
@@ -41,13 +45,13 @@
         <p class="hero-sub">Difira Studio merancang, membangun, dan menjalankan produk digital — untuk portofolio produk kami sendiri dan untuk bisnis yang ingin bergerak lebih cepat.</p>
         <div class="hero-actions">
           <a class="button button-dark" href="#work">Lihat portofolio <span>↓</span></a>
-          <a class="button button-outline" href="#contact">Diskusikan proyek <span>↗</span></a>
+          <a class="button button-outline" href="#contact">Diskusikan proyek <span>↗︎</span></a>
         </div>
       </div>
       <div class="hero-art" aria-hidden="true">
         <div class="hero-blob"><img src="difira-illustration.svg" alt="" /></div>
         <div class="hero-chip chip-a"><b>TehPOS</b><span class="dot live"></span> live</div>
-        <div class="hero-chip chip-b"><b>Laundry POS</b><span class="dot build"></span> in development</div>
+        <div class="hero-chip chip-b"><b>Perhalus</b><span class="dot live"></span> live</div>
         <div class="hero-chip chip-c"><b>Jadwalkan</b><span class="dot build"></span> in development</div>
       </div>
     </section>
@@ -55,7 +59,7 @@
     <section class="facts" aria-label="Sekilas Difira Studio">
       <div class="container facts-grid">
         <div class="fact"><strong>4</strong><span>produk dalam portofolio</span></div>
-        <div class="fact"><strong>1</strong><span>produk live di produksi</span></div>
+        <div class="fact"><strong>2</strong><span>produk sudah live</span></div>
         <div class="fact"><strong>PT</strong><span>badan hukum resmi — PT Difira Berkah Bersama</span></div>
         <div class="fact"><strong>3</strong><span>posisi sedang dibuka di Semarang</span></div>
       </div>
@@ -82,7 +86,7 @@
         <div class="section-head section-head-light">
           <p class="eyebrow">portofolio produk</p>
           <h2>Produk yang kami <em>bangun &amp; jalankan.</em></h2>
-          <p class="section-lead">Kami membuktikan kemampuan dengan membangun produk sendiri. Setiap produk menyelesaikan masalah operasional yang nyata.</p>
+          <p class="section-lead">Kami membuktikan kemampuan dengan membangun produk sendiri. Setiap produk berangkat dari masalah yang nyata.</p>
         </div>
         <div class="work-list">
           <article class="work-item reveal">
@@ -91,56 +95,37 @@
               <div class="work-meta"><span class="badge badge-live">Live</span><span>F&amp;B · Point of Sale</span></div>
               <h3>TehPOS</h3>
               <p>POS sederhana untuk bisnis F&amp;B yang ingin melayani lebih cepat dan mencatat lebih rapi. Sudah bisa dicoba langsung.</p>
-              <a class="text-link" href="https://tehpos.vercel.app" target="_blank" rel="noopener noreferrer">Buka TehPOS <span>↗</span></a>
+              <a class="text-link" href="https://tehpos.vercel.app" target="_blank" rel="noopener noreferrer">Buka TehPOS <span>↗︎</span></a>
             </div>
           </article>
           <article class="work-item reveal">
-            <div class="work-visual yellow"><img src="art-laundry.svg" alt="" /></div>
+            <div class="work-visual yellow"><img src="art-perhalus.svg" alt="" /></div>
             <div class="work-body">
-              <div class="work-meta"><span class="badge">In development</span><span>Laundry · Operasional</span></div>
-              <h3>Laundry POS</h3>
-              <p>Semua order, status cucian, dan laporan laundry dalam satu tempat yang mudah dipahami.</p>
+              <div class="work-meta"><span class="badge badge-live">Live · internal</span><span>AI · Penulisan</span></div>
+              <h3>Perhalus</h3>
+              <p>Knowledge lab berbasis AI untuk mengenali pola tulisan AI dan menyempurnakannya lewat review manusia. Berjalan di Cloudflare dan dipakai oleh tim reviewer internal.</p>
             </div>
           </article>
           <article class="work-item reveal">
             <div class="work-visual coral"><img src="art-calendar.svg" alt="" /></div>
             <div class="work-body">
-              <div class="work-meta"><span class="badge">In development</span><span>Produktivitas · Booking</span></div>
+              <div class="work-meta"><span class="badge">In development</span><span>UMKM · Booking</span></div>
               <h3>Jadwalkan</h3>
-              <p>Atur jadwal, booking, dan waktu dengan cara yang tidak bikin kepala ikut penuh.</p>
+              <p>Platform booking online untuk usaha jasa UMKM — salon, cuci mobil, bengkel, dan spa.</p>
             </div>
           </article>
           <article class="work-item reveal">
-            <div class="work-visual lavender"><img src="art-baby.svg" alt="" /></div>
+            <div class="work-visual lavender"><img src="art-cuan.svg" alt="" /></div>
             <div class="work-body">
-              <div class="work-meta"><span class="badge">Coming soon</span><span>Keluarga · Kesehatan</span></div>
-              <h3>Buah Hatiku</h3>
-              <p>Kalkulator tumbuh kembang anak yang membantu orang tua memantau perkembangan anak dari waktu ke waktu.</p>
+              <div class="work-meta"><span class="badge">In development</span><span>AI · Konten</span></div>
+              <h3>Cuan Digital</h3>
+              <p>Mesin konten berbasis AI yang memproduksi video pendek, carousel, dan post teks, lalu menjadwalkannya ke media sosial lewat API resmi.</p>
             </div>
           </article>
         </div>
       </div>
     </section>
 
-    <section class="section container model">
-      <div class="section-head">
-        <p class="eyebrow">model bisnis</p>
-        <h2>Dua mesin, <em>satu tim.</em></h2>
-      </div>
-      <div class="model-grid">
-        <div class="model-card reveal">
-          <span class="model-tag">Produk</span>
-          <h3>Portofolio produk sendiri</h3>
-          <p>Produk digital untuk UMKM dan keluarga Indonesia, dimulai dari TehPOS. Dibangun sekali, bisa dipakai banyak pengguna.</p>
-        </div>
-        <div class="model-plus" aria-hidden="true">+</div>
-        <div class="model-card reveal">
-          <span class="model-tag">Layanan</span>
-          <h3>Pengembangan untuk klien</h3>
-          <p>Kami membuka layanan pembuatan software untuk bisnis. Masalah yang sering muncul di proyek klien bisa menjadi ide produk berikutnya.</p>
-        </div>
-      </div>
-    </section>
 
     <section class="section container" id="process">
       <div class="section-head">
@@ -165,7 +150,7 @@
         </div>
         <div class="ai-visual" aria-hidden="true">
           <span class="ai-orbit orbit-a"></span><span class="ai-orbit orbit-b"></span>
-          <div class="ai-core">AI<span>✳</span></div>
+          <div class="ai-core">AI<svg class="brand-mark" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v18M3 12h18M5.6 5.6l12.8 12.8M18.4 5.6L5.6 18.4"/></svg></div>
           <div class="ai-chip chip-one">research</div><div class="ai-chip chip-two">design</div><div class="ai-chip chip-three">build</div><div class="ai-chip chip-four">test</div>
         </div>
       </div>
@@ -188,7 +173,7 @@
       </div>
       <div class="hiring reveal">
         <div><p class="eyebrow">kami sedang berkembang</p><h3>3 posisi terbuka di Semarang: Project Manager, Full Stack Developer, Digital Marketing.</h3></div>
-        <a class="button button-dark" href="karir.html">Lihat karir <span>↗</span></a>
+        <a class="button button-dark" href="karir.html">Lihat karir <span>↗︎</span></a>
       </div>
     </section>
 
@@ -200,15 +185,15 @@
           <p>Kami terbuka untuk diskusi kemitraan, investasi, maupun proyek pengembangan software.</p>
         </div>
         <div class="contact-actions">
-          <a class="button button-light" href="mailto:hello@difira.studio?subject=Diskusi%20dengan%20Difira%20Studio">hello@difira.studio <span>↗</span></a>
-          <a class="button button-ghost" href="https://wa.me/6287761021129" target="_blank" rel="noopener noreferrer">WhatsApp <span>↗</span></a>
+          <a class="button button-light" href="mailto:hello@difira.studio?subject=Diskusi%20dengan%20Difira%20Studio">hello@difira.studio <span>↗︎</span></a>
+          <a class="button button-ghost" href="https://wa.me/6287761021129" target="_blank" rel="noopener noreferrer">WhatsApp <span>↗︎</span></a>
         </div>
       </div>
     </section>
   </main>
 
   <footer class="footer container">
-    <div class="footer-brand"><a class="brand" href="#top"><span class="brand-mark">✳</span> difira<span class="brand-dot">.</span></a><p>software, made human.</p><small>© 2026 Difira Studio</small></div>
+    <div class="footer-brand"><a class="brand" href="#top"><svg class="brand-mark" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v18M3 12h18M5.6 5.6l12.8 12.8M18.4 5.6L5.6 18.4"/></svg> difira<span class="brand-dot">.</span></a><p>software, made human.</p><small>© 2026 Difira Studio</small></div>
     <div class="footer-col"><strong>Perusahaan</strong><span>PT Difira Berkah Bersama</span><span>Kecamatan Genuk, Kota Semarang</span></div>
     <div class="footer-col"><strong>Navigasi</strong><a href="#services">Layanan</a><a href="#work">Portofolio</a><a href="karir.html">Karir</a></div>
     <div class="footer-col"><strong>Kontak</strong><a href="mailto:support@difirastudio.com">support@difirastudio.com</a><a href="https://wa.me/6287761021129" target="_blank" rel="noopener noreferrer">WA +62 877-6102-1129</a></div>
