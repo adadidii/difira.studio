@@ -1,6 +1,6 @@
 # Difira Studio
 
-Landing page Difira Studio — PT Difira Berkah Bersama, Semarang.
+Website company profile & portofolio Difira Studio — software house dari PT Difira Berkah Bersama, Semarang.
 
 ## Menjalankan
 
@@ -8,17 +8,16 @@ Buka `index.html` di browser. Project menggunakan HTML, CSS, dan JavaScript tanp
 
 ## Isi project
 
-- `index.html`: halaman utama dan katalog produk.
-- `styles.css`: visual dan animasi.
-- `app.js`: interaksi, mini game, quote, dan chatbot mockup.
+- `index.html`: halaman utama — layanan, portofolio produk, model bisnis, proses, tentang, dan kontak.
+- `karir.html`: halaman lowongan kerja.
+- `styles.css`: design system dan layout bersama untuk kedua halaman.
+- `app.js`: menu mobile, header saat scroll, dan animasi reveal.
 - `*.svg`: ilustrasi lokal.
-
-Chatbot menggunakan balasan berdasarkan keyword di browser, belum terhubung ke layanan AI atau database.
 
 ## Sebelum publikasi
 
-- Isi URL media sosial yang masih menggunakan placeholder.
+- Konfirmasi email kontak utama (`hello@difira.studio`); footer memakai `support@difirastudio.com` dan halaman karir memakai `career@difirastudio.com`.
 - Konfirmasi status dan URL produk selain TehPOS.
-- Konfirmasi email CTA utama; footer menggunakan `support@difirastudio.com`.
+- Tambahkan tautan media sosial di footer bila akunnya sudah aktif.
 
 Hosting dapat menggunakan layanan static hosting dengan `index.html` sebagai entry point.
