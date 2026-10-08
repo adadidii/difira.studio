@@ -58,8 +58,8 @@ h1 em,h2 em{font-style:normal;color:var(--coral)}
 .section-head h2{font-size:clamp(36px,5vw,60px);line-height:1;letter-spacing:-2.5px;font-weight:600}
 .section-lead{font-size:18px;color:var(--ink-soft);margin:22px 0 0;max-width:560px}
 .section-head-light .eyebrow,.section-head-light .section-lead{color:rgba(246,241,232,.72)}
-.reveal{opacity:0;transform:translateY(24px);transition:opacity .7s var(--ease),transform .7s var(--ease)}
-.reveal.in{opacity:1;transform:none}
+.js .reveal{opacity:0;transform:translateY(24px);transition:opacity .7s var(--ease),transform .7s var(--ease)}
+.js .reveal.in{opacity:1;transform:none}
 
 /* Hero */
 .hero{display:grid;grid-template-columns:1.1fr .9fr;gap:56px;align-items:center;padding-top:64px;padding-bottom:88px;min-height:calc(100vh - 76px);max-height:860px}
