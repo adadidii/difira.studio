@@ -18,7 +18,7 @@ Buka `index.html` di browser. Project menggunakan HTML, CSS, dan JavaScript tanp
 ## Sebelum publikasi
 
 - Konfirmasi email kontak utama (`hello@difira.studio`) dan email rekrutmen (`career@difirastudio.com`).
-- Konfirmasi status dan URL produk selain TehPOS.
+- Konfirmasi status dan URL produk selain TehPOS dan Perhalus.
 - Tambahkan tautan media sosial di footer bila akunnya sudah aktif.
 
 Hosting dapat menggunakan layanan static hosting dengan `index.html` sebagai entry point.
