@@ -10,14 +10,14 @@ Buka `index.html` di browser. Project menggunakan HTML, CSS, dan JavaScript tanp
 
 - `index.html`: halaman utama — layanan, portofolio produk, proses, tentang, dan kontak.
 - `karir.html`: halaman lowongan kerja.
-- `styles.css`: design system dan layout bersama untuk kedua halaman.
-- `app.js`: menu mobile, header saat scroll, dan animasi reveal.
+- `styles.css`: design system editorial dan layout responsif untuk kedua halaman.
+- `app.js`: menu mobile, scroll progress, animasi reveal, dan interaksi visual hero.
 - `art-*.svg`, `difira-illustration.svg`: ilustrasi lokal.
 - `favicon.svg`, `favicon-32.png`, `apple-touch-icon.png`, `icons/`, `site.webmanifest`: ikon browser, iPhone (Add to Home Screen), dan Android. Sumber ikon ada di `icons/icon.svg`.
 
 ## Sebelum publikasi
 
-- Konfirmasi email kontak utama (`hello@difira.studio`); footer memakai `support@difirastudio.com` dan halaman karir memakai `career@difirastudio.com`.
+- Konfirmasi email kontak utama (`hello@difira.studio`) dan email rekrutmen (`career@difirastudio.com`).
 - Konfirmasi status dan URL produk selain TehPOS.
 - Tambahkan tautan media sosial di footer bila akunnya sudah aktif.
 
