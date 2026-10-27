@@ -1,3 +1,5 @@
 node_modules/
 out/draft/
 .env
+out/hero-check/
+out/hero-grid*.png
