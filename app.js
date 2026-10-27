@@ -7,7 +7,8 @@ const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').match
 function setMenuOpen(open) {
   if (!toggle || !navLinks) return;
   toggle.setAttribute('aria-expanded', String(open));
-  toggle.setAttribute('aria-label', open ? 'Tutup menu' : 'Buka menu');
+  const english = document.documentElement.lang === 'en';
+  toggle.setAttribute('aria-label', open ? (english ? 'Close menu' : 'Tutup menu') : (english ? 'Open menu' : 'Buka menu'));
   navLinks.classList.toggle('open', open);
   document.body.style.overflow = open ? 'hidden' : '';
 }
