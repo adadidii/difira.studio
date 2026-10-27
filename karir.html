@@ -1,10 +1,10 @@
 <!doctype html>
-<html lang="id">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Karir — Difira Studio</title>
-  <meta name="description" content="Bergabung dengan Difira Studio dan bangun software yang terasa manusiawi. Posisi terbuka di Semarang." />
+  <title data-i18n="careers.meta.title">Careers — Difira Studio</title>
+  <meta name="description" content="Join Difira Studio and build software that solves real problems. Open roles in Semarang." data-i18n-attr="content:careers.meta.description" />
   <meta name="theme-color" content="#EEF2F6" />
   <link rel="icon" href="favicon.svg" type="image/svg+xml" />
   <link rel="icon" href="favicon-32.png" type="image/png" sizes="32x32" />
@@ -15,40 +15,55 @@
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600&family=Sora:wght@700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css" />
   <script>document.documentElement.classList.add('js')</script>
+  <script src="i18n.js"></script>
 </head>
 <body>
   <div class="scroll-progress" aria-hidden="true"><span></span></div>
-  <a class="skip-link" href="#main">Lewati ke konten</a>
+  <a class="skip-link" href="#main" data-i18n="nav.skip">Skip to content</a>
   <header class="site-header">
-    <nav class="nav shell" aria-label="Navigasi utama">
+    <nav class="nav shell" aria-label="Main navigation" data-i18n-attr="aria-label:nav.label">
       <a class="brand" href="index.html"><svg class="brand-mark" viewBox="0 0 64 64" aria-hidden="true" focusable="false"><rect x="10" y="10" width="14" height="44" rx="3" fill="#0B1220"/><path fill="#22D3A6" d="M30 10H32A22 22 0 0 1 32 54H30Z"/></svg><span class="brand-word"><b>Difira</b> <small>STUDIO</small></span></a>
-      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="navLinks" aria-label="Buka menu"><span></span><span></span></button>
-      <div class="nav-links" id="navLinks"><a href="index.html#work">Karya</a><a href="index.html#capabilities">Kemampuan</a><a href="studio/">Studio</a><a href="index.html#studio">Tentang</a><a href="karir.html" aria-current="page">Karir</a><a class="nav-cta" href="mailto:career@difirastudio.com?subject=Lamaran%20di%20Difira%20Studio">Kirim CV <span aria-hidden="true">↗</span></a></div>
+      <div class="nav-links" id="navLinks">
+        <a href="index.html#work" data-i18n="nav.work">Work</a>
+        <a href="index.html#approach" data-i18n="nav.approach">Approach</a>
+        <a href="studio/" data-i18n="nav.studio">Video Studio</a>
+        <a href="karir.html" aria-current="page" data-i18n="nav.careers">Careers</a>
+        <a class="nav-cta" href="mailto:career@difirastudio.com?subject=Application%20to%20Difira%20Studio"><span data-i18n="careers.cta">Send your CV</span> <span aria-hidden="true">↗</span></a>
+      </div>
+      <div class="lang-switch" role="group" aria-label="Language" data-i18n-attr="aria-label:nav.language">
+        <button type="button" data-lang="en" aria-pressed="true"><svg viewBox="0 0 60 40" aria-hidden="true"><rect width="60" height="40" fill="#012169"/><path d="M0 0L60 40M60 0L0 40" stroke="#fff" stroke-width="8"/><path d="M0 0L60 40M60 0L0 40" stroke="#C8102E" stroke-width="3"/><path d="M30 0V40M0 20H60" stroke="#fff" stroke-width="12"/><path d="M30 0V40M0 20H60" stroke="#C8102E" stroke-width="7"/></svg><span lang="en">EN</span></button>
+        <button type="button" data-lang="id" aria-pressed="false"><svg viewBox="0 0 60 40" aria-hidden="true"><rect width="60" height="40" fill="#fff"/><rect width="60" height="20" fill="#CE1126"/></svg><span lang="id">ID</span></button>
+      </div>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="navLinks" aria-label="Open menu"><span></span><span></span></button>
     </nav>
   </header>
   <main id="main">
     <section class="career-hero shell">
-      <div><p class="kicker"><span class="status-dot"></span> Karir di Difira Studio</p><h1>Kerja yang<br><em>ada artinya.</em></h1></div>
-      <p class="career-lead">Bergabunglah dengan tim kecil yang membangun software untuk menyelesaikan masalah nyata—dengan ruang untuk berpikir, mencoba, dan bertumbuh.</p>
+      <div><p class="kicker" data-i18n="careers.kicker">Careers at Difira Studio</p><h1 data-i18n-html="careers.title">Work that <em>means something.</em></h1></div>
+      <p class="career-lead" data-i18n="careers.lead">Join a small team building software that solves real problems, with room to think, try things and grow.</p>
     </section>
-    <section class="career-values shell" aria-label="Cara bekerja di Difira Studio">
-      <article class="career-value reveal"><span>01</span><h3>Ownership, bukan ego.</h3><p>Pegang pekerjaan sampai tuntas, sambil tetap terbuka pada masukan.</p></article>
-      <article class="career-value reveal"><span>02</span><h3>Belajar lewat shipping.</h3><p>Kami lebih suka merilis, mengukur, lalu memperbaiki bersama.</p></article>
-      <article class="career-value reveal"><span>03</span><h3>Dekat dengan pengguna.</h3><p>Keputusan terbaik datang dari memahami orang yang memakai produk.</p></article>
+    <section class="career-values shell" aria-label="How we work at Difira Studio" data-i18n-attr="aria-label:careers.values.label">
+      <article class="career-value reveal"><span>01</span><h2 data-i18n="careers.v1">Ownership, not ego.</h2><p data-i18n="careers.v1b">See your work through to the end while staying open to feedback.</p></article>
+      <article class="career-value reveal"><span>02</span><h2 data-i18n="careers.v2">Learn by shipping.</h2><p data-i18n="careers.v2b">We would rather release, measure and improve together.</p></article>
+      <article class="career-value reveal"><span>03</span><h2 data-i18n="careers.v3">Close to the user.</h2><p data-i18n="careers.v3b">The best decisions come from understanding the people who use the product.</p></article>
     </section>
-    <section class="openings">
+    <section class="openings on-dark">
       <div class="shell">
-        <header class="opening-head reveal"><h2>Posisi yang<br><em>sedang dibuka.</em></h2><span>3 POSISI · WFO SEMARANG</span></header>
+        <header class="opening-head reveal"><h2 data-i18n-html="careers.open.title">Open <em>roles.</em></h2><span data-i18n="careers.open.meta">3 ROLES · ON-SITE IN SEMARANG</span></header>
         <div class="job-list">
-          <a class="job reveal" href="mailto:career@difirastudio.com?subject=Lamaran%20Project%20Manager"><span class="job-num">01</span><div><h3>Project Manager</h3><div class="job-meta"><span>Full-time</span><span>WFO Semarang</span></div></div><span class="job-arrow">↗</span></a>
-          <a class="job reveal" href="mailto:career@difirastudio.com?subject=Lamaran%20Full%20Stack%20Developer"><span class="job-num">02</span><div><h3>Full Stack Developer</h3><div class="job-meta"><span>Full-time</span><span>WFO Semarang</span></div></div><span class="job-arrow">↗</span></a>
-          <a class="job reveal" href="mailto:career@difirastudio.com?subject=Lamaran%20Digital%20Marketing"><span class="job-num">03</span><div><h3>Digital Marketing</h3><div class="job-meta"><span>Full-time</span><span>WFO Semarang</span></div></div><span class="job-arrow">↗</span></a>
+          <a class="job reveal" href="mailto:career@difirastudio.com?subject=Application%3A%20Project%20Manager"><span class="job-num">01</span><div><h3>Project Manager</h3><div class="job-meta"><span data-i18n="careers.fulltime">Full-time</span><span data-i18n="careers.onsite">On-site, Semarang</span></div></div><span class="job-arrow" aria-hidden="true">↗</span></a>
+          <a class="job reveal" href="mailto:career@difirastudio.com?subject=Application%3A%20Full%20Stack%20Developer"><span class="job-num">02</span><div><h3>Full Stack Developer</h3><div class="job-meta"><span data-i18n="careers.fulltime">Full-time</span><span data-i18n="careers.onsite">On-site, Semarang</span></div></div><span class="job-arrow" aria-hidden="true">↗</span></a>
+          <a class="job reveal" href="mailto:career@difirastudio.com?subject=Application%3A%20Digital%20Marketing"><span class="job-num">03</span><div><h3>Digital Marketing</h3><div class="job-meta"><span data-i18n="careers.fulltime">Full-time</span><span data-i18n="careers.onsite">On-site, Semarang</span></div></div><span class="job-arrow" aria-hidden="true">↗</span></a>
         </div>
       </div>
     </section>
-    <section class="career-note shell reveal"><p class="kicker">Belum menemukan peranmu?</p><h2>Tetap kenalan dulu.</h2><p>Kami selalu ingin bertemu orang yang penasaran, peduli pada detail, dan ingin membuat sesuatu yang berguna.</p><a class="button button-primary" href="mailto:career@difirastudio.com?subject=Perkenalan%20dengan%20Difira%20Studio">career@difirastudio.com <span aria-hidden="true">↗</span></a></section>
+    <section class="career-note shell reveal"><p class="kicker" data-i18n="careers.note.kicker">Don't see your role?</p><h2 data-i18n="careers.note.title">Say hello anyway.</h2><p data-i18n="careers.note.body">We always want to meet people who are curious, care about details and want to make something useful.</p><a class="button button-primary" href="mailto:career@difirastudio.com?subject=Hello%20Difira%20Studio">career@difirastudio.com <span aria-hidden="true">↗</span></a></section>
   </main>
-  <footer class="footer shell"><div class="footer-brand"><a class="brand" href="index.html"><svg class="brand-mark" viewBox="0 0 64 64" aria-hidden="true" focusable="false"><rect x="10" y="10" width="14" height="44" rx="3" fill="#0B1220"/><path fill="#22D3A6" d="M30 10H32A22 22 0 0 1 32 54H30Z"/></svg><span class="brand-word"><b>Difira</b> <small>STUDIO</small></span></a><p>Software, made human.</p><small>© 2026 PT Difira Berkah Bersama</small></div><div class="footer-col"><strong>Explore</strong><a href="index.html#work">Karya</a><a href="index.html#capabilities">Kemampuan</a><a href="studio/">Studio</a><a href="index.html#studio">Tentang</a></div><div class="footer-col"><strong>Contact</strong><a href="mailto:career@difirastudio.com">career@difirastudio.com</a><a href="https://wa.me/6287761021129" target="_blank" rel="noopener noreferrer">+62 877-6102-1129</a><span>Semarang, Indonesia</span></div><a class="back-top" href="#main" aria-label="Kembali ke atas">↑</a></footer>
+  <footer class="footer shell">
+    <div class="footer-brand"><a class="brand" href="index.html"><svg class="brand-mark" viewBox="0 0 64 64" aria-hidden="true" focusable="false"><rect x="10" y="10" width="14" height="44" rx="3" fill="#0B1220"/><path fill="#22D3A6" d="M30 10H32A22 22 0 0 1 32 54H30Z"/></svg><span class="brand-word"><b>Difira</b> <small>STUDIO</small></span></a><p data-i18n="footer.tagline">Software that speaks from the heart.</p><small>PT Difira Karya Nusantara<br>Kudu, Genuk, Kota Semarang, Indonesia<br>© 2026</small></div>
+    <div class="footer-col"><strong data-i18n="footer.explore">Explore</strong><a href="index.html#work" data-i18n="nav.work">Work</a><a href="index.html#approach" data-i18n="nav.approach">Approach</a><a href="studio/" data-i18n="nav.studio">Video Studio</a></div>
+    <div class="footer-col"><strong data-i18n="footer.contact">Contact</strong><a href="mailto:career@difirastudio.com">career@difirastudio.com</a><a href="https://wa.me/6287761021129" target="_blank" rel="noopener noreferrer">+62 877-6102-1129</a><span>Semarang, Indonesia</span></div>
+  </footer>
   <script src="app.js"></script>
 </body>
 </html>

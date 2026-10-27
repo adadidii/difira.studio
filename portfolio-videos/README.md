@@ -8,6 +8,7 @@ screen lives in `src/`, so you can change copy and re-render.
 | TehPOS launch | `TehPOS-16x9`, `TehPOS-9x16` | 1920x1080, 1080x1920 | 40 s |
 | Perhalus product motion | `Perhalus` | 1920x1080 | 20 s |
 | Phone theft tips (short) | `PhoneTips` | 1080x1920 | 30 s |
+| Website hero loop | `HeroLoop-16x9`, `HeroLoop-9x16` | 1920x1080, 720x1280 | 20 s, seamless |
 
 ## Commands
 
@@ -17,6 +18,7 @@ npm run studio      # live preview in the browser
 npm run voiceover   # optional: ElevenLabs voiceover (needs ELEVENLABS_API_KEY in .env)
 npm run draft       # low-res TehPOS 16:9 draft + contact sheet in out/draft/
 npm run render      # all finals into out/ (add -- --only=tehpos|perhalus|phonetips)
+npm run render:hero # website hero loop into ../media/ (add -- --check for test stills)
 ```
 
 `npm run render` writes, per video: the MP4, a poster PNG (`*-poster.png`), a 1 fps contact sheet
