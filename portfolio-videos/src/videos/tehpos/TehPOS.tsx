@@ -424,7 +424,7 @@ const ChatShot: React.FC = () => {
   return (
     <Shot>
       <Label text="Daily report · 9:00 PM" />
-      <Fit w={430} h={884} scale={vertical ? 0.95 : 0.84} cx={vertical ? 540 : 560} cy={vertical ? 820 : 520}>
+      <Fit w={430} h={884} scale={vertical ? 0.92 : 0.84} cx={vertical ? 540 : 560} cy={vertical ? 740 : 520}>
         <div style={{ ...enter(frame, 0, 80) }}>
           <Phone>
             {/* TODO: screenshot assets/tehpos/report-chat.png (390x844, report message in chat) */}
@@ -434,7 +434,7 @@ const ChatShot: React.FC = () => {
           </Phone>
         </div>
       </Fit>
-      <Fit w={760} h={330} scale={vertical ? 1.1 : 1} cx={vertical ? 540 : 1280} cy={vertical ? 1330 : 500}>
+      <Fit w={760} h={330} scale={vertical ? 1.15 : 1} cx={vertical ? 540 : 1280} cy={vertical ? 1250 : 500}>
         {frame >= arrive + 8 && (
           <div style={{ width: 760, padding: 40, borderRadius: 32, background: C.card, boxShadow: '0 40px 90px rgba(11,18,32,.16)', ...enter(frame, arrive + 8, 60, 'x', 9) }}>
             <ReportBody frame={frame - arrive - 8} />
