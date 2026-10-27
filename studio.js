@@ -21,7 +21,7 @@ function createCard(item, resolve) {
   card.className = 'work-card reveal in';
 
   const media = document.createElement('div');
-  media.className = 'work-media';
+  media.className = item.vertical ? 'work-media is-vertical' : 'work-media';
   const poster = item.poster ? resolve(item.poster) : '';
   if (poster) {
     const img = document.createElement('img');
