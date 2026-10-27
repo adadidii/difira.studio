@@ -1,6 +1,7 @@
 // Renders every video, poster, cover and contact sheet into out/.
 //   npm run render                 -> all final videos
 //   npm run render -- --only=tehpos
+//   npm run render -- --stills     -> posters and covers only
 //   npm run draft                  -> low-res TehPOS 16:9 draft into out/draft/
 import { bundle } from '@remotion/bundler';
 import { renderMedia, renderStill, selectComposition } from '@remotion/renderer';
@@ -12,13 +13,14 @@ import { fileURLToPath } from 'node:url';
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const args = process.argv.slice(2);
 const draft = args.includes('--draft');
+const stillsOnly = args.includes('--stills');
 const only = args.find(a => a.startsWith('--only='))?.split('=')[1];
 
 // Output name, composition, poster frame (a strong frame), cover still, voiceover id.
 const VIDEOS = [
-  { name: 'tehpos-launch-16x9', comp: 'TehPOS-16x9', poster: 1130, cover: 'Cover-TehPOS', vo: 'tehpos', group: 'tehpos' },
-  { name: 'tehpos-launch-9x16', comp: 'TehPOS-9x16', poster: 1130, cover: null, vo: 'tehpos', group: 'tehpos' },
-  { name: 'perhalus-product-motion', comp: 'Perhalus', poster: 300, cover: 'Cover-Perhalus', vo: null, group: 'perhalus' },
+  { name: 'tehpos-launch-16x9', comp: 'TehPOS-16x9', poster: 345, cover: 'Cover-TehPOS', vo: 'tehpos', group: 'tehpos' },
+  { name: 'tehpos-launch-9x16', comp: 'TehPOS-9x16', poster: 345, cover: null, vo: 'tehpos', group: 'tehpos' },
+  { name: 'perhalus-product-motion', comp: 'Perhalus', poster: 445, cover: 'Cover-Perhalus', vo: null, group: 'perhalus' },
   { name: 'phone-theft-tips-short', comp: 'PhoneTips', poster: 50, cover: 'Cover-PhoneTips', vo: 'phonetips', group: 'phonetips' },
 ];
 
@@ -66,27 +68,29 @@ for (const v of list) {
   const raw = path.join(outDir, `${v.name}.raw.mp4`);
   const final = path.join(outDir, `${v.name}.mp4`);
   console.log(`Rendering ${v.name} (${composition.width}x${composition.height}, ${composition.durationInFrames} frames)${draft ? ' [draft]' : ''}`);
-  let lastPct = -1;
-  await renderMedia({
-    serveUrl,
-    composition,
-    codec: 'h264',
-    crf: draft ? 30 : 18,
-    scale: draft ? 0.4 : 1,
-    outputLocation: raw,
-    browserExecutable,
-    muted: !hasVoiceover(v.vo),
-    onProgress: ({ progress }) => {
-      const pct = Math.floor(progress * 10) * 10;
-      if (pct !== lastPct) process.stdout.write(` ${(lastPct = pct)}%`);
-    },
-  });
-  process.stdout.write('\n');
-  if (hasVoiceover(v.vo)) loudnormFile(raw, final);
-  else addSilentTrack(raw, final);
-  fs.rmSync(raw);
+  if (!stillsOnly) {
+    let lastPct = -1;
+    await renderMedia({
+      serveUrl,
+      composition,
+      codec: 'h264',
+      crf: draft ? 30 : 18,
+      scale: draft ? 0.4 : 1,
+      outputLocation: raw,
+      browserExecutable,
+      muted: !hasVoiceover(v.vo),
+      onProgress: ({ progress }) => {
+        const pct = Math.floor(progress * 10) * 10;
+        if (pct !== lastPct) process.stdout.write(` ${(lastPct = pct)}%`);
+      },
+    });
+    process.stdout.write('\n');
+    if (hasVoiceover(v.vo)) loudnormFile(raw, final);
+    else addSilentTrack(raw, final);
+    fs.rmSync(raw);
 
-  contactSheet(final, path.join(outDir, `${v.name}-contact-sheet.png`), vertical);
+    contactSheet(final, path.join(outDir, `${v.name}-contact-sheet.png`), vertical);
+  }
   if (!draft) {
     await renderStill({ serveUrl, composition, frame: v.poster, output: path.join(outDir, `${v.name}-poster.png`), browserExecutable });
     if (v.cover) {
@@ -94,5 +98,5 @@ for (const v of list) {
       await renderStill({ serveUrl, composition: cover, output: path.join(outDir, `${v.name.replace(/-16x9$/, '')}-cover.png`), browserExecutable });
     }
   }
-  console.log(`  -> ${path.relative(root, final)}${hasVoiceover(v.vo) ? ' (voiceover, -14 LUFS)' : ' (silent track, no voiceover)'}`);
+  if (!stillsOnly) console.log(`  -> ${path.relative(root, final)}${hasVoiceover(v.vo) ? ' (voiceover, -14 LUFS)' : ' (silent track, no voiceover)'}`);
 }

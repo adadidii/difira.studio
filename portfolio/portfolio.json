@@ -1,4 +1,27 @@
 {
   "showreel": { "src": "", "poster": "" },
-  "items": []
+  "items": [
+    {
+      "src": "tehpos-launch.mp4",
+      "poster": "tehpos-launch.jpg",
+      "title": "TehPOS launch video",
+      "description": "A point-of-sale app for small shops and cafes, from checkout to the daily report.",
+      "duration": "0:40"
+    },
+    {
+      "src": "perhalus-product-motion.mp4",
+      "poster": "perhalus-product-motion.jpg",
+      "title": "Perhalus product motion",
+      "description": "Interface copy rewritten in place, with a before and after toggle.",
+      "duration": "0:20"
+    },
+    {
+      "src": "phone-theft-tips-short.mp4",
+      "poster": "phone-theft-tips-short.jpg",
+      "title": "Phone safety tips short",
+      "description": "A vertical explainer: three phone settings to turn on before a theft.",
+      "duration": "0:30",
+      "vertical": true
+    }
+  ]
 }
