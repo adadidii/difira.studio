@@ -11,11 +11,13 @@ misalnya `python3 -m http.server 8080`, lalu buka `http://localhost:8080`.
 
 ## Isi project
 
-- `index.html`: halaman utama: hero video, pendekatan, tiga layanan (software, studio video, website), perusahaan, kontak.
+- `index.html`: halaman utama: hero video, pendekatan, showcase produk (TehPOS, Perhalus, video short-form), tiga layanan, alur pengerjaan, perusahaan, FAQ, kontak.
 - `studio/index.html` + `studio.js`: halaman layanan video & motion (`/studio`).
 - `karir.html`: lowongan kerja.
-- `styles.css`: design system dan layout responsif untuk semua halaman.
-- `app.js`: menu mobile, header di atas hero, animasi scroll, video hero dan video contoh.
+- `styles.css`: design system dan layout responsif untuk semua halaman. Setiap section memakai class
+  `theme-dark` atau `theme-light`; warnanya diatur lewat token CSS di kedua class itu.
+- `app.js`: menu mobile, header yang menyesuaikan tema section di bawahnya, animasi scroll (kartu showcase
+  bertumpuk, timeline proses), video hero dan video contoh.
 - `i18n.js`: tombol bahasa EN/ID. Teks bahasa Inggris ada di HTML; terjemahan Indonesia ada di objek `ID`
   di file ini. Elemen yang diterjemahkan ditandai `data-i18n`, `data-i18n-html`, atau `data-i18n-attr`.
   Default English; pilihan disimpan di browser, dan `?lang=id` di URL memaksa Bahasa Indonesia.

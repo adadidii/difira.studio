@@ -2,7 +2,7 @@ const header = document.querySelector('.site-header');
 const toggle = document.querySelector('.nav-toggle');
 const navLinks = document.querySelector('#navLinks');
 const progress = document.querySelector('.scroll-progress span');
-const hero = document.querySelector('.hero');
+const themedSections = [...document.querySelectorAll('main > .theme-dark, main > .theme-light, main > div > .theme-dark, footer.theme-dark')];
 const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 const isEnglish = () => document.documentElement.lang !== 'id';
 
@@ -12,6 +12,7 @@ function setMenuOpen(open) {
   toggle.setAttribute('aria-expanded', String(open));
   toggle.setAttribute('aria-label', open ? (isEnglish() ? 'Close menu' : 'Tutup menu') : isEnglish() ? 'Open menu' : 'Buka menu');
   navLinks.classList.toggle('open', open);
+  header?.classList.toggle('menu-open', open);
   document.body.style.overflow = open ? 'hidden' : '';
   updateHeader();
 }
@@ -23,17 +24,20 @@ if (toggle && navLinks) {
     if (event.key === 'Escape') setMenuOpen(false);
   });
   window.addEventListener('resize', () => {
-    if (window.innerWidth > 860) setMenuOpen(false);
+    if (window.innerWidth > 900) setMenuOpen(false);
   });
 }
 
-// ---------- Header over the hero ----------
+// ---------- Header: glass once scrolled, colors follow the section underneath ----------
 function updateHeader() {
   if (!header) return;
-  const menuOpen = navLinks?.classList.contains('open');
-  const overHero = hero && !menuOpen && hero.getBoundingClientRect().bottom > header.offsetHeight;
-  header.classList.toggle('is-on-hero', Boolean(overHero));
-  header.classList.toggle('scrolled', !overHero && window.scrollY > 8);
+  header.classList.toggle('scrolled', window.scrollY > 8);
+  const probe = header.getBoundingClientRect().bottom - 30;
+  const under = themedSections.find(section => {
+    const rect = section.getBoundingClientRect();
+    return rect.top <= probe && rect.bottom > probe;
+  });
+  header.classList.toggle('on-light', Boolean(under?.classList.contains('theme-light')));
 }
 
 // ---------- Scroll-linked effects ----------
@@ -71,12 +75,12 @@ function updateTrack() {
   const p = reduceMotion ? 1 : clamp01((vh * 0.8 - rect.top) / (rect.height + vh * 0.2));
   track.style.setProperty('--p', p.toFixed(3));
   const steps = track.querySelectorAll('li');
-  steps.forEach((step, i) => step.classList.toggle('on', p >= (i + 0.2) / steps.length));
+  steps.forEach((step, i) => step.classList.toggle('on', p >= i / steps.length + 0.02));
 }
 
-const stackCards = [...document.querySelectorAll('.stack-card')];
+const stackCards = [...document.querySelectorAll('.show-card')];
 function updateStack() {
-  if (reduceMotion || !stackCards.length || window.innerWidth <= 860) return;
+  if (reduceMotion || !stackCards.length || window.innerWidth <= 900) return;
   stackCards.forEach((card, i) => {
     const next = stackCards[i + 1];
     if (!next) return;
