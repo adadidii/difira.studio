@@ -259,7 +259,7 @@ const Toggle: React.FC<{ mode: Mode; scale?: number }> = ({ mode, scale = 1 }) =
 
 const ToggleShot: React.FC = () => {
   const frame = useCurrentFrame();
-  const mode: Mode = frame >= 18 && frame < 40 ? 'before' : 'after';
+  const mode: Mode = frame >= 10 && frame < 42 ? 'before' : 'after';
   return (
     <Shot>
       <AbsoluteFill style={{ alignItems: 'center', paddingTop: 22 }}>
@@ -272,9 +272,9 @@ const ToggleShot: React.FC = () => {
       </div>
       <Cursor
         path={[
-          { f: 4, x: 1100, y: 160 },
-          { f: 18, x: 845, y: 72, click: true },
-          { f: 40, x: 1065, y: 72, click: true },
+          { f: 1, x: 1000, y: 140 },
+          { f: 10, x: 845, y: 72, click: true },
+          { f: 42, x: 1065, y: 72, click: true },
         ]}
         size={50}
       />
