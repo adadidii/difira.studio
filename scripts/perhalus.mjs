@@ -19,7 +19,7 @@ import { fileURLToPath, pathToFileURL } from 'node:url';
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const I18N_FILE = path.join(root, 'i18n.js');
 const REPORT_FILE = path.join(root, 'scripts', 'perhalus-report.json');
-const HTML_FILES = ['index.html', 'studio/index.html', 'karir.html'];
+const HTML_FILES = ['index.html', 'studio/index.html', 'karir.html', 'mulai/index.html', '404.html'];
 const API = 'https://perhalus.com/api/v1/poles';
 const MIN_CHARS = 40;
 const MAX_CHARS = 5000;
@@ -56,8 +56,9 @@ export function usedKeys(htmlSources) {
 }
 
 /**
- * Keeps the strings worth paying for: long enough to judge, plain text, used by a page
- * (when `used` is given), and optionally limited to `keys`.
+ * Keeps the strings worth paying for: long enough to judge, plain text (no HTML, not a URL
+ * such as the prefilled WhatsApp links), used by a page (when `used` is given), and
+ * optionally limited to `keys`.
  */
 export function selectTexts(entries, { keys, used } = {}) {
   return entries.filter(
@@ -66,7 +67,8 @@ export function selectTexts(entries, { keys, used } = {}) {
       (!used || used.has(e.key)) &&
       e.text.length >= MIN_CHARS &&
       e.text.length <= MAX_CHARS &&
-      !/<[a-z]/i.test(e.text),
+      !/<[a-z]/i.test(e.text) &&
+      !/^https?:\/\//.test(e.text),
   );
 }
 

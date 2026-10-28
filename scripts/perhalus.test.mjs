@@ -42,6 +42,11 @@ test('usedKeys reads text, html and attribute keys, and selectTexts drops keys n
   assert.deepEqual(selectTexts(parseIdStrings(SOURCE), { used }).map(e => e.key), ['faq.a1', 'about.p1']);
 });
 
+test('selectTexts never sends URLs, even long ones without HTML', () => {
+  const entries = [{ key: 'studio.wa.trial', text: 'https://wa.me/6287761021129?text=Halo%20Difira%20Studio%2C%20saya%20tertarik' }];
+  assert.deepEqual(selectTexts(entries), []);
+});
+
 test('poles sends the documented request and returns result, cost and balance', async () => {
   const { impl, calls } = fakeFetch({
     ok: true,
