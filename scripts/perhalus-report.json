@@ -1,0 +1,66 @@
+{
+  "meta.title": {
+    "original": "Difira Studio — Software yang bicara dari hati",
+    "score": 30,
+    "level": "Samar",
+    "polished": null,
+    "polishedScore": null,
+    "changes": []
+  },
+  "meta.description": {
+    "original": "Difira Studio adalah software house di Semarang. Kami membuat software, website, dan video produk.",
+    "score": 22,
+    "level": "Samar",
+    "polished": null,
+    "polishedScore": null,
+    "changes": []
+  },
+  "hero.lead": {
+    "original": "Kami membuat software, website, dan video produk. Biasanya semua berawal dari kasir yang berantakan, jadwal booking yang kelewat, atau spreadsheet yang isinya tidak bisa dipegang.",
+    "score": 24,
+    "level": "Samar",
+    "polished": null,
+    "polishedScore": null,
+    "changes": []
+  },
+  "approach.statement": {
+    "original": "Sebagian besar pekerjaan kami terjadi sebelum ada kode. Kami duduk bersama orang yang nanti memakainya, melihat cara mereka bekerja, dan terus bertanya sampai masalah aslinya kelihatan.",
+    "score": 30,
+    "level": "Samar",
+    "polished": null,
+    "polishedScore": null,
+    "changes": []
+  },
+  "approach.s1.body": {
+    "original": "Kasir, admin, pemilik usaha. Kami dengar cerita mereka dulu, baru bahas fitur.",
+    "score": 32,
+    "level": "Samar",
+    "polished": null,
+    "polishedScore": null,
+    "changes": []
+  },
+  "approach.s2.body": {
+    "original": "Kasir yang lambat bisa jadi ternyata masalah stok. Kami cek dulu sebelum membangun.",
+    "score": 20,
+    "level": "Bersih",
+    "polished": null,
+    "polishedScore": null,
+    "changes": []
+  },
+  "approach.s3.body": {
+    "original": "Mulai dari yang kecil, jalankan, lalu tambah setelah benar-benar dipakai.",
+    "score": 32,
+    "level": "Samar",
+    "polished": null,
+    "polishedScore": null,
+    "changes": []
+  },
+  "show.lead": {
+    "original": "Karena kami yang mengelola, urusan update, laporan bug, dan pertanyaan pengguna juga kami yang pegang.",
+    "score": 26,
+    "level": "Samar",
+    "polished": null,
+    "polishedScore": null,
+    "changes": []
+  }
+}

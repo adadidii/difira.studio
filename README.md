@@ -26,6 +26,24 @@ misalnya `python3 -m http.server 8080`, lalu buka `http://localhost:8080`.
 - `portfolio/`: video portfolio untuk `/studio`, diatur lewat `portfolio/portfolio.json`.
 - `portfolio-videos/`: project Remotion untuk semua video (lihat README di dalamnya).
 - `favicon.svg`, `favicon-32.png`, `apple-touch-icon.png`, `icons/`, `site.webmanifest`: ikon browser dan PWA.
+- `scripts/perhalus.mjs`: menilai dan memoles teks Bahasa Indonesia di `i18n.js` lewat [Perhalus](https://perhalus.com).
+
+## Memoles copy Bahasa Indonesia dengan Perhalus
+
+Perhalus menilai seberapa terasa AI sebuah teks Indonesia, lalu menulis ulang supaya terbaca wajar. Copy bahasa
+Inggris di HTML tetap diedit manual, karena Perhalus hanya untuk Bahasa Indonesia.
+
+1. Buat API key di https://perhalus.com/app/developer, lalu simpan di `.env` di root repo (sudah di-ignore git):
+   `PERHALUS_API_KEY=ph_live_...`. Jangan taruh kunci ini di kode browser atau di commit.
+2. `node scripts/perhalus.mjs --dry-run`: lihat teks mana yang akan dikirim dan berapa karakternya. Tidak memanggil API.
+3. `node scripts/perhalus.mjs`: menilai dan memoles. Hasilnya, termasuk skor sebelum dan sesudah, disimpan di
+   `scripts/perhalus-report.json`. Pakai `--keys faq.a1,faq.a2` untuk teks tertentu saja, atau `--mode nilai`
+   untuk menilai tanpa menulis ulang.
+4. Periksa report-nya, lalu `node scripts/perhalus.mjs --apply` untuk memasukkan hasil poles ke `i18n.js`.
+
+Setiap panggilan memotong saldo pemilik kunci per karakter. Karena itu, script hanya mengirim teks 40–5.000 karakter
+tanpa HTML, dan melewati teks yang sudah ada di report kecuali diberi `--force`. Judul pendek dan teks ber-HTML
+tetap diedit manual. Tesnya memakai respons palsu, jadi tidak memanggil API: `node --test scripts/perhalus.test.mjs`.
 
 ## Sebelum publikasi
 
