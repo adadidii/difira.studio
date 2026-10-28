@@ -16,6 +16,44 @@ function createVideo(src, poster, label) {
   return video;
 }
 
+// With a mouse, hovering a card plays a muted preview on top of the poster. The file only
+// starts loading on the first hover. Clicking still opens the full player with sound.
+const HOVER_PREVIEW =
+  window.matchMedia('(hover: hover) and (pointer: fine)').matches &&
+  !window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+function addHoverPreview(media, src) {
+  let video = null;
+  let active = true;
+  media.addEventListener('pointerenter', event => {
+    if (!active || event.pointerType !== 'mouse') return;
+    if (!video) {
+      video = document.createElement('video');
+      video.className = 'work-preview';
+      video.muted = true;
+      video.loop = true;
+      video.playsInline = true;
+      video.preload = 'auto';
+      video.setAttribute('aria-hidden', 'true');
+      video.src = src;
+      video.addEventListener('playing', () => media.classList.add('is-previewing'));
+      media.insertBefore(video, media.querySelector('.work-play'));
+    }
+    video.play().catch(() => {});
+  });
+  media.addEventListener('pointerleave', () => {
+    if (!video) return;
+    video.pause();
+    media.classList.remove('is-previewing');
+  });
+  return {
+    stop() {
+      active = false;
+      video?.pause();
+    },
+  };
+}
+
 function createCard(item, resolve) {
   const card = document.createElement('article');
   card.className = 'work-card reveal in';
@@ -38,7 +76,9 @@ function createCard(item, resolve) {
   play.className = 'work-play';
   play.setAttribute('aria-label', `Play ${item.title}`);
   play.innerHTML = `<span>${PLAY_ICON}</span>`;
+  const preview = HOVER_PREVIEW ? addHoverPreview(media, resolve(item.src)) : null;
   play.addEventListener('click', () => {
+    preview?.stop();
     const video = createVideo(resolve(item.src), poster, item.title);
     media.replaceChildren(video);
     video.play().catch(() => {});

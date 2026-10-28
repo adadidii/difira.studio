@@ -260,6 +260,13 @@
     'brief.direct': 'Lebih suka menulis langsung?',
     'contact.brief': 'Isi ringkasan proyek',
 
+    // 404 page
+    'nf.meta.title': 'Halaman tidak ditemukan — Difira Studio',
+    'nf.kicker': 'Halaman tidak ditemukan',
+    'nf.title': 'Halaman ini <em>tidak tersedia.</em>',
+    'nf.lead': 'Tautannya mungkin sudah tidak berlaku, atau alamatnya salah ketik. Silakan lanjutkan ke salah satu halaman berikut.',
+    'nf.home': 'Kembali ke beranda',
+
     // Careers page
     'careers.meta.title': 'Karir — Difira Studio',
     'careers.meta.description': 'Bergabunglah dengan Difira Studio untuk membangun perangkat lunak yang menyelesaikan masalah nyata. Posisi terbuka di Semarang.',

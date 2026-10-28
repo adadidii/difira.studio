@@ -240,3 +240,106 @@ if (finePointer && !reduceMotion) {
     button.addEventListener('pointerleave', () => (button.style.translate = ''));
   });
 }
+
+// ---------- Dot-matrix type ----------
+// Elements with data-dots (the footer wordmark, the 404 number) are redrawn as a grid of dots
+// sampled from their own text. Dots near the pointer swell, turn mint and drift outward, then
+// fade back. Without a mouse, or with reduced motion, the dots stay still.
+function dotMatrix(el) {
+  const canvas = document.createElement('canvas');
+  canvas.setAttribute('aria-hidden', 'true');
+  el.append(canvas);
+  el.classList.add('is-dots');
+  const ctx = canvas.getContext('2d');
+  const RADIUS = 150;
+  let dots = [];
+  let width = 0;
+  let height = 0;
+  let pointer = null;
+  let raf = 0;
+
+  function sample() {
+    const rect = el.getBoundingClientRect();
+    const style = getComputedStyle(el);
+    const fontSize = parseFloat(style.fontSize);
+    const ratio = window.devicePixelRatio || 1;
+    width = rect.width;
+    height = rect.height;
+    canvas.width = Math.round(width * ratio);
+    canvas.height = Math.round(height * ratio);
+    ctx.setTransform(ratio, 0, 0, ratio, 0, 0);
+
+    // Draw the text once off screen, then keep a dot wherever a grid point lands on ink.
+    const probe = document.createElement('canvas');
+    probe.width = Math.ceil(width);
+    probe.height = Math.ceil(height);
+    const pctx = probe.getContext('2d', { willReadFrequently: true });
+    pctx.font = `${style.fontWeight} ${fontSize}px ${style.fontFamily}`;
+    if ('letterSpacing' in pctx) pctx.letterSpacing = style.letterSpacing;
+    pctx.textAlign = 'center';
+    pctx.textBaseline = 'middle';
+    pctx.fillText(el.dataset.dots || el.textContent.trim(), width / 2, height / 2 + fontSize * 0.04);
+    const ink = pctx.getImageData(0, 0, probe.width, probe.height).data;
+
+    const step = Math.max(5, Math.round(fontSize / 26));
+    dots = [];
+    for (let y = step / 2; y < height; y += step) {
+      for (let x = step / 2; x < width; x += step) {
+        if (ink[(Math.floor(y) * probe.width + Math.floor(x)) * 4 + 3] > 128) {
+          dots.push({ x, y, r: step * 0.34, glow: 0 });
+        }
+      }
+    }
+    draw();
+  }
+
+  function draw() {
+    ctx.clearRect(0, 0, width, height);
+    let active = false;
+    for (const dot of dots) {
+      let target = 0;
+      if (pointer) {
+        const d = Math.hypot(dot.x - pointer.x, dot.y - pointer.y);
+        target = d < RADIUS ? 1 - d / RADIUS : 0;
+      }
+      dot.glow = target > dot.glow ? target : dot.glow * 0.9;
+      if (dot.glow > 0.01) active = true;
+      const g = dot.glow;
+      // Resting dots fade from top to bottom like the old gradient wordmark.
+      const rest = 0.26 - (dot.y / height) * 0.18;
+      let x = dot.x;
+      let y = dot.y;
+      if (g && pointer) {
+        const angle = Math.atan2(dot.y - pointer.y, dot.x - pointer.x);
+        x += Math.cos(angle) * g * 5;
+        y += Math.sin(angle) * g * 5;
+      }
+      ctx.beginPath();
+      ctx.arc(x, y, dot.r * (1 + g * 0.9), 0, Math.PI * 2);
+      ctx.fillStyle = g > 0.02 ? `rgba(34, 211, 166, ${Math.min(1, rest + g)})` : `rgba(242, 245, 249, ${rest})`;
+      ctx.fill();
+    }
+    raf = active ? requestAnimationFrame(draw) : 0;
+  }
+
+  if (finePointer && !reduceMotion) {
+    el.addEventListener('pointermove', event => {
+      const rect = canvas.getBoundingClientRect();
+      pointer = { x: event.clientX - rect.left, y: event.clientY - rect.top };
+      if (!raf) raf = requestAnimationFrame(draw);
+    });
+    el.addEventListener('pointerleave', () => {
+      pointer = null;
+      if (!raf) raf = requestAnimationFrame(draw);
+    });
+  }
+
+  let resizeTimer;
+  new ResizeObserver(() => {
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(sample, 100);
+  }).observe(el);
+  (document.fonts?.ready || Promise.resolve()).then(sample);
+}
+
+if (window.ResizeObserver) document.querySelectorAll('[data-dots]').forEach(dotMatrix);

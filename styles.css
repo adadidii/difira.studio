@@ -458,8 +458,12 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
 .work-media.is-vertical { aspect-ratio: 9 / 16; max-height: 640px; margin-inline: auto; width: 100%; }
 .work-media img, .work-media video { width: 100%; height: 100%; object-fit: cover; }
 .work-media.is-vertical img, .work-media.is-vertical video { object-fit: contain; background: #000; }
+.work-preview { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0; transition: opacity .4s var(--ease); }
+.work-media.is-vertical .work-preview { object-fit: contain; background: #000; }
+.work-media.is-previewing .work-preview { opacity: 1; }
+.work-media.is-previewing .work-play span { transform: scale(.85); opacity: .9; }
 .work-play { position: absolute; inset: 0; display: grid; place-items: center; border: 0; background: linear-gradient(180deg, transparent 40%, rgba(0,0,0,.45)); cursor: pointer; }
-.work-play span { display: grid; place-items: center; width: 68px; height: 68px; border-radius: 50%; background: var(--mint); transition: transform .3s var(--ease); box-shadow: 0 0 0 10px rgba(34, 211, 166, .15); }
+.work-play span { display: grid; place-items: center; width: 68px; height: 68px; border-radius: 50%; background: var(--mint); transition: transform .3s var(--ease), opacity .3s; box-shadow: 0 0 0 10px rgba(34, 211, 166, .15); }
 .work-play:hover span { transform: scale(1.08); }
 .work-play svg { width: 22px; height: 22px; margin-left: 3px; }
 .work-duration { position: absolute; right: 12px; bottom: 12px; padding: 4px 9px; border-radius: 999px; background: rgba(0, 0, 0, .65); font-family: var(--mono); font-size: 11.5px; color: #fff; pointer-events: none; }
@@ -687,6 +691,21 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
   .brief-nav .button { flex: 1 1 auto; }
   .brief-nav [data-back] { flex: 0 0 auto; margin-right: 0; }
 }
+
+/* ==========================================================================
+   Dot-matrix type (app.js draws [data-dots] text as dots on a canvas)
+   ========================================================================== */
+.is-dots { position: relative; background: none !important; color: transparent !important; -webkit-text-fill-color: transparent; }
+.is-dots canvas { position: absolute; inset: 0; width: 100%; height: 100%; }
+.footer-word.is-dots { padding-block: .08em; }
+
+/* 404 page */
+.nf { min-height: 100svh; display: grid; align-items: center; }
+.nf-code { width: 100%; font-size: clamp(120px, 28vw, 340px); font-weight: 700; letter-spacing: -.06em; line-height: .85; color: rgba(242, 245, 249, .12); user-select: none; }
+.nf h1 { font-size: clamp(36px, 5.6vw, 68px); }
+.nf-links { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px 24px; margin-top: 8px; }
+.nf-links a { color: var(--muted); font-size: 15px; border-bottom: 1px solid var(--line-strong); padding-bottom: 2px; transition: color .2s, border-color .2s; }
+.nf-links a:hover { color: var(--text); border-color: var(--mint); }
 
 /* ==========================================================================
    Pointer effects (app.js turns these on for mouse/trackpad devices only)

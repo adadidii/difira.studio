@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title data-i18n="nf.meta.title">Page not found — Difira Studio</title>
+  <meta name="robots" content="noindex" />
+  <meta name="theme-color" content="#06080D" />
+  <!-- Served for any missing path, so every URL here is absolute. -->
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  <link rel="icon" href="/favicon-32.png" type="image/png" sizes="32x32" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/styles.css" />
+  <script>document.documentElement.classList.add('js')</script>
+  <script src="/i18n.js"></script>
+</head>
+<body>
+  <a class="skip-link" href="#main" data-i18n="nav.skip">Skip to content</a>
+  <header class="site-header">
+    <nav class="nav shell" aria-label="Main navigation" data-i18n-attr="aria-label:nav.label">
+      <a class="brand" href="/"><svg class="brand-mark" viewBox="0 0 64 64" aria-hidden="true" focusable="false"><rect x="10" y="10" width="14" height="44" rx="3"/><path fill="#22D3A6" d="M30 10H32A22 22 0 0 1 32 54H30Z"/></svg><span class="brand-word"><b>Difira</b> <small>STUDIO</small></span></a>
+      <div class="lang-switch" role="group" aria-label="Language" data-i18n-attr="aria-label:nav.language">
+        <button type="button" data-lang="en" aria-pressed="true"><svg viewBox="0 0 60 40" aria-hidden="true"><rect width="60" height="40" fill="#012169"/><path d="M0 0L60 40M60 0L0 40" stroke="#fff" stroke-width="8"/><path d="M0 0L60 40M60 0L0 40" stroke="#C8102E" stroke-width="3"/><path d="M30 0V40M0 20H60" stroke="#fff" stroke-width="12"/><path d="M30 0V40M0 20H60" stroke="#C8102E" stroke-width="7"/></svg><span lang="en">EN</span></button>
+        <button type="button" data-lang="id" aria-pressed="false"><svg viewBox="0 0 60 40" aria-hidden="true"><rect width="60" height="40" fill="#fff"/><rect width="60" height="20" fill="#CE1126"/></svg><span lang="id">ID</span></button>
+      </div>
+    </nav>
+  </header>
+
+  <main id="main">
+    <section class="page-hero nf theme-dark">
+      <div class="shell">
+        <p class="nf-code hero-fade" style="--d:.05s" aria-hidden="true" data-dots>404</p>
+        <p class="eyebrow hero-fade" style="--d:.2s"><i></i><span data-i18n="nf.kicker">Page not found</span></p>
+        <h1 class="hero-fade" style="--d:.3s" data-i18n-html="nf.title">This page <em>does not exist.</em></h1>
+        <p class="hero-lead hero-fade" style="--d:.4s" data-i18n="nf.lead">The link may be out of date, or the address was mistyped. Here are a few places to go instead.</p>
+        <div class="hero-actions hero-fade" style="--d:.5s">
+          <a class="button button-primary" href="/"><span class="arrow" aria-hidden="true">←</span> <span data-i18n="nf.home">Back to home</span></a>
+          <a class="button button-outline" href="/mulai/"><span data-i18n="nav.cta">Start a project</span> <span class="arrow" aria-hidden="true">↗</span></a>
+        </div>
+        <ul class="nf-links hero-fade" style="--d:.6s">
+          <li><a href="/#work" data-i18n="nav.work">Work</a></li>
+          <li><a href="/#services" data-i18n="nav.services">Services</a></li>
+          <li><a href="/studio/" data-i18n="nav.studio">Video Studio</a></li>
+          <li><a href="/karir.html" data-i18n="nav.careers">Careers</a></li>
+        </ul>
+      </div>
+    </section>
+  </main>
+  <script src="/app.js"></script>
+</body>
+</html>

@@ -14,6 +14,8 @@ misalnya `python3 -m http.server 8080`, lalu buka `http://localhost:8080`.
 - `index.html`: halaman utama: hero video, pendekatan, showcase produk (TehPOS, Perhalus, video short-form), tiga layanan, alur pengerjaan, perusahaan, FAQ, kontak.
 - `studio/index.html` + `studio.js`: halaman layanan video & motion (`/studio`).
 - `karir.html`: lowongan kerja.
+- `404.html`: halaman untuk alamat yang tidak ada (Vercel memakainya otomatis). Semua path di dalamnya absolut
+  karena halaman ini bisa tampil di alamat sedalam apa pun.
 - `mulai/index.html` + `brief.js`: form "Mulai proyek" (`/mulai`) tiga langkah. Jawaban disusun menjadi pesan
   WhatsApp ke nomor di `WA_NUMBER` (`brief.js`), dengan pratinjau langsung di samping form. Tidak ada server;
   draf yang belum terkirim disimpan di browser pengunjung saja.
