@@ -220,7 +220,7 @@ if (finePointer && !reduceMotion) {
 
   // Cards: the glow position is set on whichever card the pointer is over, including the
   // portfolio cards studio.js adds after load.
-  const glowCards = '.show-card, .service, .approach-card, .pkg, .value, .step, .faq, .work-card, .about-panel, .brief-next';
+  const glowCards = '.show-card, .service, .approach-card, .choose-card, .pkg, .value, .step, .faq, .work-card, .about-panel, .brief-next';
   document.addEventListener('pointermove', event => {
     const card = event.target instanceof Element ? event.target.closest(glowCards) : null;
     if (!card) return;
