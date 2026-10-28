@@ -14,6 +14,9 @@ misalnya `python3 -m http.server 8080`, lalu buka `http://localhost:8080`.
 - `index.html`: halaman utama: hero video, pendekatan, showcase produk (TehPOS, Perhalus, video short-form), tiga layanan, alur pengerjaan, perusahaan, FAQ, kontak.
 - `studio/index.html` + `studio.js`: halaman layanan video & motion (`/studio`).
 - `karir.html`: lowongan kerja.
+- `mulai/index.html` + `brief.js`: form "Mulai proyek" (`/mulai`) tiga langkah. Jawaban disusun menjadi pesan
+  WhatsApp ke nomor di `WA_NUMBER` (`brief.js`), dengan pratinjau langsung di samping form. Tidak ada server;
+  draf yang belum terkirim disimpan di browser pengunjung saja.
 - `styles.css`: design system dan layout responsif untuk semua halaman. Setiap section memakai class
   `theme-dark` atau `theme-light`; warnanya diatur lewat token CSS di kedua class itu.
 - `app.js`: menu mobile, header yang menyesuaikan tema section di bawahnya, animasi scroll (kartu showcase
