@@ -265,6 +265,8 @@ function dotMatrix(el) {
     const ratio = window.devicePixelRatio || 1;
     width = rect.width;
     height = rect.height;
+    // A hidden tab or collapsed layout can report zero size; the ResizeObserver resamples later.
+    if (width < 1 || height < 1) return;
     canvas.width = Math.round(width * ratio);
     canvas.height = Math.round(height * ratio);
     ctx.setTransform(ratio, 0, 0, ratio, 0, 0);
