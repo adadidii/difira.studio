@@ -176,60 +176,58 @@ document.querySelectorAll('video[data-autoplay]').forEach(video => {
   ).observe(video);
 });
 
-// ---------- Custom cursor and magnetic buttons (mouse and trackpad only) ----------
-// A dot follows the pointer exactly and a ring trails it. The ring grows over links and
-// buttons, shrinks while pressed, and steps aside in text fields so the caret stays visible.
+// ---------- Pointer effects (mouse and trackpad only) ----------
+// The cursor itself stays the normal arrow. Dark page headers light up their grid around the
+// pointer and leave a short trail of glowing cells; cards get a soft glow that follows it.
 const finePointer = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
 if (finePointer && !reduceMotion) {
-  const dot = document.createElement('div');
-  const ring = document.createElement('div');
-  dot.className = 'cursor-dot';
-  ring.className = 'cursor-ring';
-  dot.setAttribute('aria-hidden', 'true');
-  ring.setAttribute('aria-hidden', 'true');
-  document.body.append(ring, dot);
+  document.documentElement.classList.add('fine-pointer');
+  const GRID = 72; // same as the background-size of .hero::after and .page-hero::after
 
-  const interactive = 'a, button, label, summary, [role=button], .show-visual, .work-media, .reel-frame';
-  const textField = 'input:not([type=checkbox]):not([type=radio]), textarea, select, [contenteditable]';
-  const target = { x: -100, y: -100 };
-  const trail = { x: -100, y: -100 };
-  let raf = 0;
+  document.querySelectorAll('.hero, .page-hero').forEach(section => {
+    const layer = document.createElement('div');
+    layer.className = 'spotlight';
+    layer.setAttribute('aria-hidden', 'true');
+    section.append(layer);
+    let lastCell = '';
 
-  function follow() {
-    trail.x += (target.x - trail.x) * 0.2;
-    trail.y += (target.y - trail.y) * 0.2;
-    ring.style.transform = `translate3d(${trail.x}px, ${trail.y}px, 0)`;
-    raf = Math.abs(target.x - trail.x) + Math.abs(target.y - trail.y) > 0.1 ? requestAnimationFrame(follow) : 0;
-  }
+    section.addEventListener('pointermove', event => {
+      if (event.pointerType !== 'mouse') return;
+      const rect = section.getBoundingClientRect();
+      const x = event.clientX - rect.left;
+      const y = event.clientY - rect.top;
+      section.style.setProperty('--mx', `${x}px`);
+      section.style.setProperty('--my', `${y}px`);
+      section.classList.add('is-lit');
 
+      const cx = Math.floor(x / GRID);
+      const cy = Math.floor(y / GRID);
+      if (`${cx},${cy}` === lastCell) return;
+      lastCell = `${cx},${cy}`;
+      const cell = document.createElement('span');
+      cell.className = 'spot-cell';
+      cell.style.left = `${cx * GRID}px`;
+      cell.style.top = `${cy * GRID}px`;
+      cell.addEventListener('animationend', () => cell.remove());
+      layer.append(cell);
+    }, { passive: true });
+
+    section.addEventListener('pointerleave', () => {
+      section.classList.remove('is-lit');
+      lastCell = '';
+    });
+  });
+
+  // Cards: the glow position is set on whichever card the pointer is over, including the
+  // portfolio cards studio.js adds after load.
+  const glowCards = '.show-card, .service, .approach-card, .pkg, .value, .step, .faq, .work-card, .about-panel, .brief-next';
   document.addEventListener('pointermove', event => {
-    if (event.pointerType !== 'mouse') return;
-    target.x = event.clientX;
-    target.y = event.clientY;
-    dot.style.transform = `translate3d(${target.x}px, ${target.y}px, 0)`;
-    document.documentElement.classList.add('has-cursor');
-    const el = event.target instanceof Element ? event.target : null;
-    const inText = Boolean(el?.closest(textField));
-    ring.classList.toggle('is-hidden', inText);
-    dot.classList.toggle('is-hidden', inText);
-    ring.classList.toggle('is-hover', !inText && Boolean(el?.closest(interactive)));
-    // The nearest themed section decides the colors; cards like .service.featured can override it.
-    const onLight = el?.closest('.theme-light, .theme-dark, .service.featured, .pkg-dark, .wa-card')?.classList.contains('theme-light');
-    ring.classList.toggle('on-light', Boolean(onLight));
-    dot.classList.toggle('on-light', Boolean(onLight));
-    if (!raf) raf = requestAnimationFrame(follow);
+    const card = event.target instanceof Element ? event.target.closest(glowCards) : null;
+    if (!card) return;
+    const rect = card.getBoundingClientRect();
+    card.style.setProperty('--gx', `${event.clientX - rect.left}px`);
+    card.style.setProperty('--gy', `${event.clientY - rect.top}px`);
   }, { passive: true });
-
-  document.addEventListener('pointerdown', () => ring.classList.add('is-down'));
-  document.addEventListener('pointerup', () => ring.classList.remove('is-down'));
-  document.documentElement.addEventListener('mouseleave', () => {
-    ring.classList.add('is-hidden');
-    dot.classList.add('is-hidden');
-  });
-  document.documentElement.addEventListener('mouseenter', () => {
-    ring.classList.remove('is-hidden');
-    dot.classList.remove('is-hidden');
-  });
 
   // Buttons lean a few pixels toward the pointer. `translate` stacks with the CSS hover lift.
   document.querySelectorAll('.button, .nav-cta, .job-arrow').forEach(button => {

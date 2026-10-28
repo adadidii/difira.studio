@@ -689,27 +689,35 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
 }
 
 /* ==========================================================================
-   Custom cursor (app.js adds the elements on mouse/trackpad devices only)
+   Pointer effects (app.js turns these on for mouse/trackpad devices only)
    ========================================================================== */
-.cursor-dot, .cursor-ring { position: fixed; left: 0; top: 0; z-index: 9999; pointer-events: none; border-radius: 50%; opacity: 0; transition: opacity .25s; will-change: transform; }
-.has-cursor .cursor-dot, .has-cursor .cursor-ring { opacity: 1; }
-.has-cursor, .has-cursor * { cursor: none; }
-.has-cursor :is(input:not([type=checkbox]):not([type=radio]), textarea, select, [contenteditable]) { cursor: text; }
-.cursor-dot { width: 6px; height: 6px; margin: -3px 0 0 -3px; background: var(--mint); }
-.cursor-ring { width: 0; height: 0; }
-.cursor-ring::before {
-  content: ''; position: absolute; left: -18px; top: -18px; width: 36px; height: 36px; border-radius: 50%;
-  border: 1.5px solid rgba(242, 245, 249, .7);
-  transition: transform .35s var(--ease), background-color .35s, border-color .35s;
+/* Dark page headers: brighter grid and a mint glow around the pointer, plus fading cells. */
+.spotlight { position: absolute; inset: 0; z-index: -1; overflow: hidden; pointer-events: none; opacity: 0; transition: opacity .6s var(--ease); }
+.is-lit > .spotlight { opacity: 1; }
+.spotlight::before {
+  content: ''; position: absolute; inset: 0;
+  background-image: linear-gradient(rgba(34, 211, 166, .4) 1px, transparent 1px), linear-gradient(90deg, rgba(34, 211, 166, .4) 1px, transparent 1px);
+  background-size: 72px 72px;
+  mask-image: radial-gradient(260px circle at var(--mx, 50%) var(--my, 50%), #000, transparent 70%);
+  -webkit-mask-image: radial-gradient(260px circle at var(--mx, 50%) var(--my, 50%), #000, transparent 70%);
 }
-.cursor-ring.on-light::before { border-color: rgba(11, 18, 32, .55); }
-.cursor-ring.is-hover::before { transform: scale(1.7); background-color: rgba(34, 211, 166, .16); border-color: var(--mint); }
-.cursor-ring.on-light.is-hover::before { background-color: rgba(18, 180, 140, .12); border-color: var(--mint-strong); }
-.cursor-dot.on-light { background: var(--mint-strong); }
-.cursor-ring.is-down::before { transform: scale(.75); }
-.cursor-ring.is-hover.is-down::before { transform: scale(1.4); }
-.has-cursor .cursor-dot.is-hidden, .has-cursor .cursor-ring.is-hidden { opacity: 0; }
-.cursor-ring.is-hover + .cursor-dot { opacity: 0; }
+.spotlight::after { content: ''; position: absolute; inset: 0; background: radial-gradient(480px circle at var(--mx, 50%) var(--my, 50%), rgba(34, 211, 166, .16), transparent 65%); }
+.spot-cell { position: absolute; width: 72px; height: 72px; background: rgba(34, 211, 166, .12); box-shadow: inset 0 0 0 1px rgba(34, 211, 166, .5); animation: cell-fade 1.2s var(--ease) forwards; }
+@keyframes cell-fade { from { opacity: 1; } to { opacity: 0; } }
+.hero-glow { transition: opacity .6s var(--ease), filter .6s var(--ease); }
+.hero.is-lit .hero-glow { filter: blur(20px) brightness(1.5); }
+
+/* Cards: a soft glow under the content that follows the pointer while hovered. */
+.fine-pointer :is(.show-card, .service, .approach-card, .pkg, .value, .step, .faq, .work-card, .about-panel, .brief-next) { isolation: isolate; }
+.fine-pointer :is(.approach-card, .pkg, .value, .faq, .work-card, .about-panel, .brief-next) { position: relative; }
+.fine-pointer :is(.show-card, .service, .approach-card, .pkg, .value, .step, .faq, .work-card, .about-panel, .brief-next)::before {
+  content: ''; position: absolute; inset: 0; z-index: -1; border-radius: inherit; pointer-events: none;
+  background: radial-gradient(380px circle at var(--gx, 50%) var(--gy, 50%), rgba(34, 211, 166, .13), transparent 60%);
+  opacity: 0; transition: opacity .4s var(--ease);
+}
+.fine-pointer :is(.show-card, .service, .approach-card, .pkg, .value, .step, .faq, .work-card, .about-panel, .brief-next):hover::before { opacity: 1; }
+.fine-pointer :is(.show-card, .service.featured, .pkg-dark)::before { background: radial-gradient(420px circle at var(--gx, 50%) var(--gy, 50%), rgba(34, 211, 166, .2), transparent 60%); }
+
 .button, .nav-cta, .job-arrow { transition-property: transform, translate, background, border-color, box-shadow, color; transition-duration: .25s; transition-timing-function: var(--ease); }
 
 @media (prefers-reduced-motion: reduce) {
