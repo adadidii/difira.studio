@@ -89,6 +89,6 @@ tetap diedit manual. Tesnya memakai respons palsu, jadi tidak memanggil API: `no
 
 - Halaman `/studio` memakai WhatsApp untuk semua pemesanan, dengan pesan yang sudah terisi per paket
   (`studio.wa.*` di `i18n.js` untuk versi Indonesia). Contra, email, dan Fiverr sengaja tidak dipakai dulu.
-- Konfirmasi email kontak (`hello@difira.studio`) dan email rekrutmen (`career@difirastudio.com`).
+- Konfirmasi email kontak (`hello@difirastudio.com`) dan email rekrutmen (`career@difirastudio.com`).
 
 Hosting: static hosting dengan `index.html` sebagai entry point (saat ini Vercel).

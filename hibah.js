@@ -11,7 +11,7 @@
   const HIBAH_ENDPOINT =
     'https://script.google.com/macros/s/AKfycbxxH5ar3NqAotzePd8xK7X1iVSO8QvbdiVC04-HzXGbOFMms1OtZdDpokHW9JaVnhxbGQ/exec';
   const DRAFT_KEY = 'difira-hibah-draft';
-  const SHARE_URL = 'https://difira.studio/hibah/';
+  const SHARE_URL = 'https://difirastudio.com/hibah/';
 
   const MSG = {
     required: 'Bagian ini wajib diisi.',

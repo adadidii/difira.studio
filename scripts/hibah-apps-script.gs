@@ -1,5 +1,5 @@
 /**
- * Hibah Digital Difira 2026: receives registrations from difira.studio/hibah and appends
+ * Hibah Digital Difira 2026: receives registrations from difirastudio.com/hibah and appends
  * them to this spreadsheet. Paste into Extensions → Apps Script of the spreadsheet, then
  * Deploy → New deployment → Web app (Execute as: Me, Who has access: Anyone). Put the
  * web app URL in HIBAH_ENDPOINT in hibah.js. Setup steps are in the repo README.
