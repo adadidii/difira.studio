@@ -150,7 +150,7 @@
     'work.v.i3': 'Paket short-form',
     'work.v.cta': 'Kunjungi studio',
     'work.w.title': 'Website',
-    'work.w.body': 'Kami merancang, membangun, dan meluncurkan website Anda, kemudian mengaturnya agar tim Anda dapat memperbarui isinya sendiri.',
+    'work.w.body': 'Kami merancang, membangun, dan meluncurkan website Anda, serta tetap membantu pembaruannya setelah rilis.',
     'work.w.o1': 'Landing page',
     'work.w.o2': 'Web app',
     'work.w.cta': 'Rencanakan website',
