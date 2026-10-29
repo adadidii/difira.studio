@@ -11,7 +11,7 @@ const isEnglish = () => document.documentElement.lang !== 'id';
 // read the phase from here. For testing, ?hibah_now=2026-11-06T09:00:00%2B07:00 pretends
 // it is that moment.
 const HIBAH = {
-  open: Date.parse('2026-10-29T17:00:00+07:00'),
+  open: Date.parse('2026-10-29T13:45:00+07:00'),
   close: Date.parse('2026-11-05T17:00:00+07:00'),
   announce: Date.parse('2026-11-10T00:00:00+07:00'),
 };

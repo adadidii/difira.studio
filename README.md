@@ -39,7 +39,7 @@ misalnya `python3 -m http.server 8080`, lalu buka `http://localhost:8080`.
 
 Teks kampanye berasal dari folder `hibah-digital-2026/` di luar repo (S&K, FAQ, konten website) dan dipakai apa adanya.
 
-**Jadwal otomatis (WIB).** `app.js` menentukan fase dari jam pengunjung: belum dibuka (sebelum 29 Okt 17.00), dibuka
+**Jadwal otomatis (WIB).** `app.js` menentukan fase dari jam pengunjung: belum dibuka (sebelum 29 Okt 13.45), dibuka
 (29 Okt 17.00 – 5 Nov 17.00), ditutup (sampai 10 Nov 00.00), dan sudah diumumkan (mulai 10 Nov). Papan pengumuman di
 atas semua halaman, pop-up beranda (sekali per pengunjung, hanya saat dibuka), info di hero `/hibah`, dan formulir
 mengikuti fase ini. Server juga menolak pendaftaran di luar jam buka. Untuk mencoba fase lain tanpa menunggu, tambahkan

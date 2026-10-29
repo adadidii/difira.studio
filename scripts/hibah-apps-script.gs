@@ -11,7 +11,7 @@
  */
 
 const SHEET_NAME = 'Pendaftar';
-const OPEN_AT = new Date('2026-10-29T17:00:00+07:00');
+const OPEN_AT = new Date('2026-10-29T13:45:00+07:00');
 const CLOSE_AT = new Date('2026-11-05T17:00:00+07:00');
 const MIN_FILL_MS = 20 * 1000;
 
