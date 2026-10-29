@@ -40,7 +40,7 @@ const FIELDS = [
   ['fitur', 'Fitur penting', 2000, '', 0],
   ['alasan', 'Alasan butuh hibah', 2000, 'all', 100],
   ['harapan', 'Perubahan yang diharapkan', 2000, 'all', 50],
-  ['tingkat', 'Tingkat publikasi', 20, 'all', 0],
+  ['instagram', 'Instagram usaha', 100, '', 0],
   ['nama_pic', 'Nama PIC', 120, 'all', 0],
   ['jabatan', 'Jabatan', 120, 'all', 0],
   ['wa', 'WhatsApp', 20, 'all', 0],
