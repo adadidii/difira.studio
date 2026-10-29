@@ -20,6 +20,28 @@
     'footer.explore': 'Jelajahi',
     'footer.contact': 'Kontak',
 
+    // Hibah Digital Difira 2026 (announcement bar and home pop-up)
+    'ann.label': 'Pengumuman',
+    'ann.open.b': 'Hibah Digital Difira 2026 telah dibuka.',
+    'ann.open.t': 'Website dan aplikasi gratis bagi 8 usaha dan organisasi. Pendaftaran ditutup 5 November 2026.',
+    'ann.open.short': 'Hibah Digital Difira 2026 dibuka hingga 5 Nov.',
+    'ann.open.cta': 'Daftar sekarang',
+    'ann.open.cta.short': 'Daftar',
+    'ann.closed.t': 'Pendaftaran Hibah Digital Difira 2026 telah ditutup. Penerima diumumkan pada 10 November 2026.',
+    'ann.closed.cta': 'Lihat detail',
+    'ann.announced.t': 'Penerima Hibah Digital Difira 2026 telah diumumkan.',
+    'ann.announced.cta': 'Lihat penerima',
+    'nav.hibah': 'Hibah',
+    'pop.label': 'Program Pembukaan Difira Studio',
+    'pop.title': 'Hibah Digital Difira 2026',
+    'pop.body': 'Kami membuka 8 hibah bagi usaha dan organisasi yang belum memiliki website atau aplikasi. Seluruh biaya pembuatan kami tanggung.',
+    'pop.p1': '5 hibah landing page',
+    'pop.p2': '3 hibah aplikasi operasional',
+    'pop.p3': 'Domain tahun pertama disubsidi',
+    'pop.cta': 'Daftar sekarang',
+    'pop.later': 'Nanti saja',
+    'pop.close': 'Tutup',
+
     // Home
     'hero.title': '<span class="line"><span>Jasa pembuatan software,</span></span><span class="line"><span>website & <em>video motion.</em></span></span>',
     'hero.lead': 'Kami membuat SaaS dan sistem bisnis, company profile, landing page, web app, serta video produk. Pekerjaan dimulai dari memahami persoalan Anda dan selesai ketika hasilnya siap digunakan oleh pelanggan.',

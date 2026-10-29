@@ -6,6 +6,56 @@ const themedSections = [...document.querySelectorAll('main > .theme-dark, main >
 const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 const isEnglish = () => document.documentElement.lang !== 'id';
 
+// ---------- Hibah Digital Difira 2026: campaign phases ----------
+// All times are WIB (UTC+7). Pages, the announcement bar, the pop-up and the /hibah form
+// read the phase from here. For testing, ?hibah_now=2026-11-06T09:00:00%2B07:00 pretends
+// it is that moment.
+const HIBAH = {
+  open: Date.parse('2026-10-29T17:00:00+07:00'),
+  close: Date.parse('2026-11-05T17:00:00+07:00'),
+  announce: Date.parse('2026-11-10T00:00:00+07:00'),
+};
+const hibahNowOverride = Date.parse(new URLSearchParams(window.location.search).get('hibah_now') || '');
+const hibahNow = () => (Number.isNaN(hibahNowOverride) ? Date.now() : hibahNowOverride);
+function hibahPhase(now = hibahNow()) {
+  if (now < HIBAH.open) return 'upcoming';
+  if (now < HIBAH.close) return 'open';
+  if (now < HIBAH.announce) return 'closed';
+  return 'announced';
+}
+/** "6 hari 23 jam" / "6 days 23 hours" until registration closes; empty once closed. */
+function hibahCountdown(lang = document.documentElement.lang) {
+  const left = HIBAH.close - hibahNow();
+  if (left <= 0) return '';
+  const days = Math.floor(left / 864e5);
+  const hours = Math.floor((left % 864e5) / 36e5);
+  if (left < 36e5) {
+    const minutes = Math.max(1, Math.ceil(left / 6e4));
+    return lang === 'id' ? `${minutes} menit` : `${minutes} ${minutes === 1 ? 'minute' : 'minutes'}`;
+  }
+  if (lang === 'id') return `${days} hari ${hours} jam`;
+  return `${days} ${days === 1 ? 'day' : 'days'} ${hours} ${hours === 1 ? 'hour' : 'hours'}`;
+}
+window.difiraHibah = { phase: hibahPhase, now: hibahNow, countdown: hibahCountdown, close: HIBAH.close };
+
+// Announcement bar: shows the text for the current phase and pushes the fixed header down
+// while the bar is on screen.
+const hibahBar = document.querySelector('[data-hibah-bar]');
+function updateBarOffset() {
+  const visible = hibahBar && !hibahBar.hidden ? Math.max(0, hibahBar.offsetHeight - window.scrollY) : 0;
+  document.documentElement.style.setProperty('--ann-offset', `${visible}px`);
+}
+if (hibahBar) {
+  const phase = hibahPhase();
+  const state = hibahBar.querySelector(`[data-state="${phase}"]`);
+  if (state) {
+    state.hidden = false;
+    hibahBar.hidden = false;
+  }
+  updateBarOffset();
+  window.addEventListener('resize', updateBarOffset);
+}
+
 // ---------- Mobile menu ----------
 function setMenuOpen(open) {
   if (!toggle || !navLinks) return;
@@ -96,6 +146,7 @@ function onScroll() {
   ticking = true;
   requestAnimationFrame(() => {
     ticking = false;
+    updateBarOffset();
     updateHeader();
     if (progress) {
       const scrollable = document.documentElement.scrollHeight - window.innerHeight;
@@ -345,3 +396,79 @@ function dotMatrix(el) {
 }
 
 if (window.ResizeObserver) document.querySelectorAll('[data-dots]').forEach(dotMatrix);
+
+// ---------- Hibah pop-up (home page) ----------
+// Shown once per visitor, only while registration is open. A modal <dialog> keeps the rest of
+// the page inert; Tab is also cycled inside it, Esc and a click outside close it, and focus goes
+// back to where it was.
+const hibahPop = document.querySelector('[data-hibah-pop]');
+const POP_KEY = 'difira-hibah-pop-seen';
+function popSeen() {
+  try {
+    return localStorage.getItem(POP_KEY) === '1';
+  } catch {
+    return false;
+  }
+}
+function markPopSeen() {
+  try {
+    localStorage.setItem(POP_KEY, '1');
+  } catch {
+    /* storage unavailable: the pop-up may show again on the next visit */
+  }
+}
+
+if (hibahPop && typeof hibahPop.showModal === 'function' && hibahPhase() === 'open' && !popSeen()) {
+  const countdown = hibahPop.querySelector('[data-hibah-countdown]');
+  let returnFocus = null;
+  let timer = 0;
+
+  function renderCountdown() {
+    const left = hibahCountdown();
+    countdown.hidden = !left;
+    countdown.replaceChildren();
+    if (!left) return;
+    const b = document.createElement('b');
+    b.textContent = left;
+    countdown.append(isEnglish() ? 'Applications close in ' : 'Pendaftaran ditutup dalam ', b);
+  }
+
+  function closePop() {
+    if (!hibahPop.open) return;
+    hibahPop.close();
+  }
+
+  hibahPop.addEventListener('close', () => {
+    clearInterval(timer);
+    returnFocus?.focus?.({ preventScroll: true });
+  });
+  hibahPop.querySelectorAll('[data-pop-close]').forEach(button => button.addEventListener('click', closePop));
+  // The inner panel fills the dialog, so a click that lands on the dialog itself hit the backdrop.
+  hibahPop.addEventListener('click', event => {
+    if (event.target === hibahPop) closePop();
+  });
+  hibahPop.addEventListener('keydown', event => {
+    if (event.key !== 'Tab') return;
+    const focusable = [...hibahPop.querySelectorAll('a[href], button:not([disabled])')];
+    const first = focusable[0];
+    const last = focusable[focusable.length - 1];
+    if (event.shiftKey && document.activeElement === first) {
+      event.preventDefault();
+      last.focus();
+    } else if (!event.shiftKey && document.activeElement === last) {
+      event.preventDefault();
+      first.focus();
+    }
+  });
+  document.addEventListener('difira:lang', renderCountdown);
+
+  setTimeout(() => {
+    if (popSeen() || document.querySelector('.nav-links.open')) return;
+    returnFocus = document.activeElement;
+    renderCountdown();
+    timer = setInterval(renderCountdown, 60_000);
+    hibahPop.showModal();
+    hibahPop.querySelector('.hp-actions .button-primary').focus();
+    markPopSeen();
+  }, 1500);
+}
