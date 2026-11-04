@@ -5,7 +5,7 @@
 (function () {
   const ID = {
     // Shared
-    'meta.title': 'Jasa Pembuatan Software, Website, dan Video Motion di Semarang — Difira Studio',
+    'meta.title': 'Jasa Pembuatan Software, Website, dan Video Motion di Semarang | Difira Studio',
     'meta.description': 'Difira Studio melayani pembuatan software SaaS, sistem bisnis, website, dan video motion untuk usaha di Semarang maupun kota lain di Indonesia. Layanan kami mencakup SEO, SEM, serta dukungan setelah rilis.',
     'nav.skip': 'Lewati ke konten',
     'nav.label': 'Navigasi utama',
@@ -164,7 +164,7 @@
     'contact.body': 'Kirimkan pesan singkat mengenai usaha Anda dan persoalan yang sedang dihadapi. Kami akan membalas dengan usulan langkah pertama yang akan kami ambil.',
 
     // Video studio page
-    'studio.meta.title': 'Difira Studio — Video produk dan motion graphics untuk software',
+    'studio.meta.title': 'Difira Studio: Video produk dan motion graphics untuk software',
     'studio.meta.description': 'Studio video yang dijalankan oleh pembuat produk perangkat lunak, untuk video explainer dan motion graphics yang jelas.',
     'studio.nav.home': 'Beranda Difira',
     'studio.nav.work': 'Karya',
@@ -230,7 +230,7 @@
     'studio.footer.tagline': 'Video produk dan motion graphics untuk software.',
 
     // Project brief page (/mulai)
-    'brief.meta.title': 'Mulai proyek — Difira Studio',
+    'brief.meta.title': 'Mulai proyek | Difira Studio',
     'brief.meta.description': 'Ceritakan proyek Anda kepada Difira Studio melalui tiga langkah singkat. Jawaban Anda akan disusun menjadi pesan WhatsApp yang dapat Anda periksa sebelum dikirim.',
     'brief.label': 'Ringkasan proyek',
     'brief.title': 'Ceritakan <em>proyek Anda.</em>',
@@ -301,13 +301,13 @@
     'contact.brief': 'Isi ringkasan proyek',
 
     // 404 page
-    'nf.meta.title': 'Halaman tidak ditemukan — Difira Studio',
+    'nf.meta.title': 'Halaman tidak ditemukan | Difira Studio',
     'nf.title': 'Halaman ini <em>tidak tersedia.</em>',
     'nf.lead': 'Tautan tersebut mungkin sudah tidak berlaku, atau alamatnya salah ketik. Silakan menuju salah satu halaman berikut.',
     'nf.home': 'Kembali ke beranda',
 
     // Careers page
-    'careers.meta.title': 'Karir — Difira Studio',
+    'careers.meta.title': 'Karir | Difira Studio',
     'careers.meta.description': 'Bergabunglah dengan Difira Studio untuk membangun perangkat lunak yang menyelesaikan masalah nyata. Posisi terbuka di Semarang.',
     'careers.cta': 'Kirimkan CV',
     'careers.see': 'Lihat posisi yang tersedia',

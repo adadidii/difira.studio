@@ -866,7 +866,7 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
 .hb-criteria { display: grid; gap: 18px; }
 .hb-criteria li { display: grid; grid-template-columns: 1fr auto; gap: 8px 16px; }
 .hb-criteria span { font-weight: 500; }
-.hb-criteria b { font-family: var(--mono); font-weight: 500; color: var(--accent); }
+.hb-criteria b { font-family: var(--mono); font-weight: 500; color: var(--accent-text); }
 .hb-criteria i { grid-column: 1 / -1; height: 8px; border-radius: 8px; background: var(--surface-2); position: relative; overflow: hidden; }
 .hb-criteria i::after { content: ''; position: absolute; inset: 0 auto 0 0; width: calc(var(--w) * 2.5); max-width: 100%; border-radius: inherit; background: linear-gradient(90deg, var(--mint-strong), var(--mint)); }
 
@@ -993,6 +993,29 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
 .fine-pointer :is(.show-card, .service.featured, .pkg-dark)::before { background: radial-gradient(420px circle at var(--gx, 50%) var(--gy, 50%), rgba(34, 211, 166, .2), transparent 60%); }
 
 .button, .nav-cta, .job-arrow { transition-property: transform, translate, background, border-color, box-shadow, color; transition-duration: .25s; transition-timing-function: var(--ease); }
+
+/* ---------- Control states ---------- */
+.button:disabled, .button:disabled:hover { opacity: .55; cursor: not-allowed; transform: none; box-shadow: none; }
+.button:active:not(:disabled), .nav-cta:active { transform: scale(.98); }
+:is(.nav-toggle, .hero-pause, .hp-close, .lang-switch button):active { transform: scale(.94); }
+:is(.text-link, .footer-col a, .nf-links a, .nav-links > a:not(.nav-cta), .job, .choice, .pill span, .faq summary, .hb-sk summary):active { opacity: .7; }
+
+/* ---------- Touch targets: at least 44px on phones and tablets ---------- */
+@media (max-width: 900px) {
+  .brand, .ann-link, .check { min-height: 44px; }
+  .lang-switch { padding: 0; gap: 0; }
+  .lang-switch button { justify-content: center; min-width: 44px; min-height: 44px; padding: 0 6px; }
+  .hero-pause, .hp-close { width: 44px; height: 44px; }
+  .hp-close { top: 8px; right: 8px; }
+  /* The underline sits on the link box, so the tap area grows through a pseudo-element. */
+  .text-link { position: relative; }
+  .text-link::after { content: ''; position: absolute; inset: -8px 0; }
+  .footer-col { gap: 0; }
+  .footer-col a { display: inline-flex; align-items: center; min-height: 44px; }
+  .nf-links { gap: 0 24px; }
+  .nf-links a { display: inline-flex; align-items: center; min-height: 44px; padding-bottom: 0; border-bottom: 0; text-decoration: underline; text-decoration-color: var(--line-strong); text-underline-offset: 4px; }
+  .pill span { display: inline-flex; align-items: center; min-height: 44px; }
+}
 
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
