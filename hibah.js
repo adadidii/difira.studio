@@ -262,10 +262,16 @@
     return data;
   }
 
+  // Same shape as the numbers the Apps Script hands out (HDD-7K3Q); used for mocks and bots.
+  function fakeNumber() {
+    const chars = '23456789ABCDEFGHJKLMNPQRSTUVWXYZ';
+    return 'HDD-' + Array.from({ length: 4 }, () => chars[Math.floor(Math.random() * chars.length)]).join('');
+  }
+
   async function send(data) {
     if (mock === '1') {
       await new Promise(r => setTimeout(r, 700));
-      return { ok: true, nomor: 'HDD-0001' };
+      return { ok: true, nomor: fakeNumber() };
     }
     if (mock === 'fail' || !HIBAH_ENDPOINT) {
       if (!HIBAH_ENDPOINT) console.warn('hibah.js: HIBAH_ENDPOINT is empty, so registrations cannot be sent.');
@@ -306,7 +312,7 @@
     const data = payload();
     // Honeypot: a person never sees this field, so anything in it came from a bot.
     if (data.website_url) {
-      showDone('HDD-0000');
+      showDone(fakeNumber());
       return;
     }
 

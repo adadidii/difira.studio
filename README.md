@@ -53,9 +53,10 @@ mengikuti fase ini. Server juga menolak pendaftaran di luar jam buka. Untuk menc
    izinkan aksesnya dengan akun Google yang memiliki Sheet.
 4. Salin **Web app URL** (berakhiran `/exec`) ke `HIBAH_ENDPOINT` di bagian atas `hibah.js`.
 5. Uji: buka URL itu di browser; harus muncul `{"ok":true,...}`. Lalu kirim satu pendaftaran percobaan dari `/hibah`,
-   cek barisnya di tab "Pendaftar", dan hapus baris percobaan itu (nomor berikutnya tetap berlanjut).
+   cek barisnya di tab "Pendaftar", lalu hapus baris percobaan itu.
 
-Setiap pendaftaran menjadi satu baris dengan nomor `HDD-0001` dan seterusnya, waktu WIB, dan kolom "Duplikat WA"
+Setiap pendaftaran menjadi satu baris dengan nomor acak yang unik seperti `HDD-7K3Q` (tidak berurutan, supaya jumlah
+pendaftar tidak terbaca dari nomornya), waktu WIB, dan kolom "Duplikat WA"
 yang terisi "Ya" kalau nomor WhatsApp yang sama sudah pernah mendaftar. **Ekspor:** File → Download → CSV atau Excel,
 atau langsung bagikan Sheet ke tim seleksi. Jika script diubah, deploy ulang lewat Deploy → Manage deployments → Edit
 → Version: New version, supaya URL tetap sama.
@@ -65,7 +66,7 @@ panjang setiap jawaban (di form dan di server), pemeriksaan isian wajib per kate
 dalam 10 menit dianggap kirim ulang dan mendapat nomor yang sama, serta isian berawalan `=`, `+`, `-`, atau `@`
 disimpan sebagai teks agar tidak dijalankan sebagai rumus di Sheets.
 
-**Menguji formulir tanpa Sheet:** `?hibah_mock=1` berpura-pura berhasil (nomor HDD-0001), `?hibah_mock=fail`
+**Menguji formulir tanpa Sheet:** `?hibah_mock=1` berpura-pura berhasil (dengan nomor acak), `?hibah_mock=fail`
 berpura-pura gagal.
 
 ## Memoles copy Bahasa Indonesia dengan Perhalus

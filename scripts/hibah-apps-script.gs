@@ -59,7 +59,7 @@ function doPost(e) {
     const now = new Date();
 
     // Bots: answer like a success so they do not retry, but store nothing.
-    if (data.website_url || Number(data.elapsed_ms) < MIN_FILL_MS) return json({ ok: true, nomor: 'HDD-0000' });
+    if (data.website_url || Number(data.elapsed_ms) < MIN_FILL_MS) return json({ ok: true, nomor: randomNumber() });
     if (now < OPEN_AT || now >= CLOSE_AT) return json({ ok: false, error: 'closed' });
 
     const clean = validate(data);
@@ -74,15 +74,14 @@ function doPost(e) {
     lock.waitLock(20000);
     try {
       const sheet = getSheet();
-      const props = PropertiesService.getScriptProperties();
-      const seq = Number(props.getProperty('seq') || '0') + 1;
-      props.setProperty('seq', String(seq));
-      const nomor = 'HDD-' + String(seq).padStart(4, '0');
-
-      const waColumn = HEADER.indexOf('WhatsApp') + 1;
       const last = sheet.getLastRow();
-      const existing = last > 1 ? sheet.getRange(2, waColumn, last - 1, 1).getValues().flat() : [];
-      const duplicate = existing.some(v => String(v).replace(/\D/g, '').replace(/^0/, '62') === wa);
+      const column = name => (last > 1 ? sheet.getRange(2, HEADER.indexOf(name) + 1, last - 1, 1).getValues().flat() : []);
+
+      const taken = new Set(column('Nomor').map(String));
+      let nomor = randomNumber();
+      while (taken.has(nomor)) nomor = randomNumber();
+
+      const duplicate = column('WhatsApp').some(v => String(v).replace(/\D/g, '').replace(/^0/, '62') === wa);
 
       const time = Utilities.formatDate(now, 'Asia/Jakarta', 'yyyy-MM-dd HH:mm:ss');
       const row = [nomor, time, duplicate ? 'Ya' : ''].concat(FIELDS.map(f => safe(clean[f[0]])));
@@ -122,6 +121,18 @@ function validate(data) {
   if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(out.email)) return null;
   if (!/^\d{4}$/.test(out.tahun_mulai)) return null;
   return out;
+}
+
+/**
+ * A random registration number such as HDD-7K3Q, so the numbers do not reveal how many
+ * people have registered. Look-alike characters (0/O, 1/I) are left out because the number
+ * is read out over WhatsApp. 32^4 ≈ one million combinations; doPost re-rolls on a clash.
+ */
+function randomNumber() {
+  const chars = '23456789ABCDEFGHJKLMNPQRSTUVWXYZ';
+  let code = '';
+  for (let i = 0; i < 4; i++) code += chars.charAt(Math.floor(Math.random() * chars.length));
+  return 'HDD-' + code;
 }
 
 /** Stops a submitted value from being read as a spreadsheet formula. */
