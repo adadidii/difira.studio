@@ -11,7 +11,7 @@ misalnya `python3 -m http.server 8080`, lalu buka `http://localhost:8080`.
 
 ## Isi project
 
-- `index.html`: halaman utama: hero video, pendekatan, showcase produk (TehPOS, Perhalus, video short-form), tiga layanan, alur pengerjaan, perusahaan, FAQ, kontak.
+- `index.html`: halaman utama: hero video, pendekatan, showcase produk dan website (TehPOS, Perhalus, Sububu, Siji Futsal, video short-form), tiga layanan, alur pengerjaan, perusahaan, FAQ, kontak.
 - `studio/index.html` + `studio.js`: halaman layanan video & motion (`/studio`).
 - `karir.html`: lowongan kerja.
 - `404.html`: halaman untuk alamat yang tidak ada (Vercel memakainya otomatis). Semua path di dalamnya absolut
