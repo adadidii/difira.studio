@@ -100,5 +100,8 @@ tetap diedit manual. Tesnya memakai respons palsu, jadi tidak memanggil API: `no
 - Halaman `/studio` memakai WhatsApp untuk semua pemesanan, dengan pesan yang sudah terisi per paket
   (`studio.wa.*` di `i18n.js` untuk versi Indonesia). Contra, email, dan Fiverr sengaja tidak dipakai dulu.
 - Email memakai Cloudflare Email Routing: `halo@difirastudio.com` untuk kontak dan `career@difirastudio.com` untuk lamaran kerja. Alamat lain di domain ini tidak diteruskan.
+- Analitik: Cloudflare Web Analytics (tanpa cookie). Snippet `beacon.min.js` dipasang manual di akhir `<body>` setiap halaman,
+  karena situs tidak lewat proxy Cloudflare. Halaman baru juga harus diberi snippet ini. Datanya ada di dashboard
+  Cloudflare, menu Web Analytics.
 
 Hosting: static hosting dengan `index.html` sebagai entry point (saat ini Vercel).
