@@ -79,7 +79,7 @@
     'show.tehpos.video': 'Video produk TehPOS',
     'show.perhalus.tag': 'SaaS · Alat menulis',
     'show.perhalus.body': 'Layanan untuk menilai sejauh mana sebuah tulisan berbahasa Indonesia terasa seperti buatan AI, lalu menulis ulang tulisan tersebut agar terbaca wajar. Setiap perubahan ditampilkan berdampingan dengan teks aslinya.',
-    'show.perhalus.video': 'Video produk Perhalus',
+    'show.perhalus.img': 'Halaman depan website Perhalus',
     'show.sububu.tag': 'Aplikasi mobile · Android',
     'show.sububu.body': 'Aplikasi Android yang mengingatkan Anda sebelum masa uji coba gratis berubah menjadi langganan berbayar. Ada panduan berhenti berlangganan langkah demi langkah dan draf email permintaan refund. Tanpa akun, dan daftar langganan Anda tetap tersimpan di ponsel.',
     'show.sububu.img': 'Halaman depan website Sububu',
