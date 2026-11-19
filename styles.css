@@ -994,6 +994,16 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
 
 .button, .nav-cta, .job-arrow { transition-property: transform, translate, background, border-color, box-shadow, color; transition-duration: .25s; transition-timing-function: var(--ease); }
 
+/* ---------- End Year Sale prices (app.js adds .sale-on while the sale runs) ---------- */
+.price-sale { display: none; }
+.service-price s { font-size: 26px; font-weight: 600; letter-spacing: -.03em; color: var(--text); text-decoration: none; }
+.pkg-price s { text-decoration: none; }
+.sale-on .price-sale { display: inline; }
+.sale-on .price-old { text-decoration: line-through; text-decoration-thickness: 1.5px; color: var(--muted); }
+.sale-on .service-price { flex-wrap: wrap; }
+.sale-on .service-price s { font-size: 16px; font-weight: 500; letter-spacing: 0; }
+.sale-on .pkg-price .price-old { display: block; margin-bottom: 8px; font-size: 18px; font-weight: 500; letter-spacing: 0; }
+
 /* ---------- Control states ---------- */
 .button:disabled, .button:disabled:hover { opacity: .55; cursor: not-allowed; transform: none; box-shadow: none; }
 .button:active:not(:disabled), .nav-cta:active { transform: scale(.98); }

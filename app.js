@@ -38,20 +38,23 @@ function hibahCountdown(lang = document.documentElement.lang) {
 }
 window.difiraHibah = { phase: hibahPhase, now: hibahNow, countdown: hibahCountdown, close: HIBAH.close };
 
-// Announcement bar: shows the text for the current phase and pushes the fixed header down
-// while the bar is on screen.
-const hibahBar = document.querySelector('[data-hibah-bar]');
+// ---------- End Year Sale: 35% off until 31 Dec 2026, 23:59 WIB ----------
+// While it runs, <html> gets .sale-on: prices show the old one struck through next to the sale
+// price, and the bar is shown. Afterwards both go back to normal on their own.
+// For testing, ?sale_now=2027-01-01T00:00:00%2B07:00 pretends it is that time.
+const SALE_END = Date.parse('2027-01-01T00:00:00+07:00');
+const saleNow = Date.parse(new URLSearchParams(window.location.search).get('sale_now') || '') || Date.now();
+const saleOn = saleNow < SALE_END;
+document.documentElement.classList.toggle('sale-on', saleOn);
+
+// Announcement bar: pushes the fixed header down while the bar is on screen.
+const annBar = document.querySelector('[data-ann-bar]');
+if (annBar && !saleOn) annBar.hidden = true;
 function updateBarOffset() {
-  const visible = hibahBar && !hibahBar.hidden ? Math.max(0, hibahBar.offsetHeight - window.scrollY) : 0;
+  const visible = annBar && !annBar.hidden ? Math.max(0, annBar.offsetHeight - window.scrollY) : 0;
   document.documentElement.style.setProperty('--ann-offset', `${visible}px`);
 }
-if (hibahBar) {
-  const phase = hibahPhase();
-  const state = hibahBar.querySelector(`[data-state="${phase}"]`);
-  if (state) {
-    state.hidden = false;
-    hibahBar.hidden = false;
-  }
+if (annBar) {
   updateBarOffset();
   window.addEventListener('resize', updateBarOffset);
 }

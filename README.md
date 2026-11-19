@@ -37,6 +37,15 @@ misalnya `python3 -m http.server 8080`, lalu buka `http://localhost:8080`.
 
 ## Hibah Digital Difira 2026
 
+**Status 19 November 2026:** penerima sudah diumumkan melalui email. `/hibah` kini hanya berisi ucapan selamat dan S&K;
+formulir dan pop-up beranda sudah dilepas, jadi bagian di bawah ini berlaku untuk arsip dan program berikutnya. `hibah.js`
+dan `scripts/hibah-apps-script.gs` tetap disimpan.
+
+**Papan pengumuman** di atas semua halaman sekarang menampilkan End Year Sale (diskon 35% untuk semua jasa) dan menuju
+WhatsApp. Teksnya ada di HTML tiap halaman, terjemahannya di `ann.sale.*` pada `i18n.js`; `/hibah` menulisnya langsung
+dalam Bahasa Indonesia. Promo berakhir 31 Desember 2026 pukul 23.59 WIB (`SALE_END` di `app.js`): sampai saat itu harga lama
+dicoret di samping harga diskon, setelahnya papan disembunyikan dan harga kembali normal. Uji dengan `?sale_now=2027-01-01T00:00:00%2B07:00`.
+
 Teks kampanye berasal dari folder `hibah-digital-2026/` di luar repo (S&K, FAQ, konten website) dan dipakai apa adanya.
 
 **Jadwal otomatis (WIB).** `app.js` menentukan fase dari jam pengunjung: belum dibuka (sebelum 29 Okt 13.45), dibuka
